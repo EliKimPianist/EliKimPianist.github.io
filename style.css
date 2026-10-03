@@ -427,3 +427,95 @@ footer {
     margin-bottom: 3px;
   }
 }
+/* FINAL HERO POSITION */
+
+.hero-media {
+  position: relative;
+  width: min(100%, 620px);
+  margin: 0 auto;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* text on upper-right area */
+.hero-overlay {
+  position: absolute;
+
+  top: 28px;
+  right: 28px;
+  left: auto;
+  bottom: auto;
+
+  width: 46%;
+  padding: 0;
+
+  background: transparent;
+  backdrop-filter: none;
+
+  text-align: right;
+  color: #1d1d1b;
+}
+
+.hero-overlay h1 {
+  margin: 0;
+  font-size: 52px;
+  line-height: 0.92;
+}
+
+.hero-overlay .eyebrow {
+  margin-bottom: 10px;
+}
+
+.hero-intro {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+
+  .hero-media {
+    width: 100%;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .hero-overlay {
+    top: 18px;
+    right: 18px;
+    left: auto;
+
+    width: 48%;
+
+    text-align: right;
+  }
+
+  .hero-overlay h1 {
+    font-size: 32px;
+    line-height: 0.92;
+  }
+
+  .hero-overlay .eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    margin-bottom: 7px;
+  }
+
+  /* 모바일에서는 긴 설명은 사진 위에서 제거 */
+  .hero-intro {
+    display: none;
+  }
+
+}
