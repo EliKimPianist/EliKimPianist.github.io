@@ -677,3 +677,31 @@ footer {
   }
 
 }
+@media (max-width: 760px) {
+
+  .hero-photo {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 45% center;
+  }
+
+  .hero-overlay {
+    top: 7%;
+    right: 5%;
+    width: 46%;
+  }
+
+  .hero-overlay h1 {
+    font-size: 38px;
+    line-height: 0.9;
+  }
+
+}
