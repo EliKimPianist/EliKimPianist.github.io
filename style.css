@@ -1,22 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Quicksand:wght@400;500&display=swap');
 
+
 * {
   box-sizing: border-box;
 }
+
 
 html {
   scroll-behavior: smooth;
 }
 
+
 body {
   margin: 0;
   padding: 0;
+
   background: #f7f5f0;
   color: #1d1d1b;
+
   font-family: "Quicksand", sans-serif;
   font-weight: 400;
   line-height: 1.7;
 }
+
 
 a {
   color: inherit;
@@ -41,29 +47,39 @@ a {
   padding: 22px 5vw;
 
   background: #f7f5f0;
+
   border-bottom: 1px solid #ded9cf;
 }
 
+
 .name {
   font-family: "Cormorant Garamond", serif;
+
   font-size: 28px;
   font-weight: 500;
+
   letter-spacing: -0.02em;
+
   text-decoration: none;
 }
+
 
 .nav {
   display: flex;
   gap: 28px;
 }
 
+
 .nav a {
   font-size: 12px;
   font-weight: 500;
+
   letter-spacing: 0.13em;
   text-transform: uppercase;
+
   text-decoration: none;
 }
+
 
 .nav a:hover,
 .text-link:hover,
@@ -73,7 +89,7 @@ a {
 
 
 /* =========================
-   GENERAL TYPOGRAPHY
+   TYPOGRAPHY
 ========================= */
 
 .eyebrow {
@@ -86,6 +102,7 @@ a {
   text-transform: uppercase;
 }
 
+
 h1,
 h2,
 h3 {
@@ -93,23 +110,26 @@ h3 {
   font-weight: 400;
 }
 
+
 h1 {
   margin: 0;
 
   font-size: clamp(56px, 5.5vw, 88px);
-  line-height: 0.9;
 
+  line-height: 0.9;
   letter-spacing: -0.03em;
 }
+
 
 h2 {
   margin: 0;
 
   font-size: clamp(44px, 6vw, 72px);
-  line-height: 1;
 
+  line-height: 1;
   letter-spacing: -0.025em;
 }
+
 
 h3 {
   margin-top: 0;
@@ -118,7 +138,7 @@ h3 {
 
 
 /* =========================
-   HERO / HOME
+   HERO
 ========================= */
 
 main {
@@ -127,96 +147,125 @@ main {
   padding: 0;
 }
 
+
 .hero {
   width: 100%;
+
   margin: 0;
+
   padding: 0 0 100px;
 }
 
 
-/* FORCE PHOTO TO TOUCH BOTH EDGES */
+/*
+   원본 세로 사진은 절대 늘리지 않음.
+   양옆 빈 공간만 차분한 우드 컬러로 채움.
+*/
 
 .hero-photo {
   position: relative;
 
-  width: 100vw;
+  width: 100%;
 
-  margin-left: calc(50% - 50vw);
+  min-height: 780px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   overflow: hidden;
+
+  background: #ad7948;
 }
 
 
-/* PHOTO ITSELF — NO CROPPING, NO STRETCHING */
+/* ORIGINAL PHOTO — NO STRETCH */
 
 .hero-photo img {
   display: block;
 
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 780px;
+
+  max-width: 100%;
+
+  object-fit: contain;
 
   margin: 0;
-  padding: 0;
 }
 
 
-/* very subtle right-side shade for readable text */
+/*
+   배경과 사진 경계가 너무 딱 끊겨 보이지 않도록
+   아주 은은한 우드톤 그라데이션
+*/
 
-.hero-photo::after {
+.hero-photo::before {
   content: "";
 
   position: absolute;
   inset: 0;
 
-  pointer-events: none;
+  z-index: 0;
 
   background:
     linear-gradient(
-      to left,
-      rgba(20, 12, 6, 0.20) 0%,
-      rgba(20, 12, 6, 0.05) 32%,
-      rgba(20, 12, 6, 0) 55%
+      90deg,
+      #a86f3d 0%,
+      #b27b48 18%,
+      transparent 37%,
+      transparent 63%,
+      #b27b48 82%,
+      #a86f3d 100%
     );
 
+  pointer-events: none;
+}
+
+
+.hero-photo img {
+  position: relative;
   z-index: 1;
 }
 
 
-/* TEXT INSIDE PHOTO */
+/* TEXT — UPPER RIGHT */
 
 .hero-overlay {
   position: absolute;
 
-  z-index: 2;
+  z-index: 3;
 
-  top: 9%;
-  right: 4%;
+  top: 10%;
+  right: 5%;
 
-  width: 31%;
+  width: 30%;
 
   padding: 0;
-  margin: 0;
-
-  color: #f7f1e8;
 
   text-align: right;
+
+  color: #f8f2e8;
 
   background: transparent;
 
   text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.38);
+    0 2px 12px rgba(0, 0, 0, 0.30);
 }
+
 
 .hero-overlay h1 {
-  color: #f7f1e8;
+  color: #f8f2e8;
 }
+
 
 .hero-eyebrow {
-  color: #f7f1e8;
+  color: #f8f2e8;
 }
 
+
 .hero-intro {
-  max-width: 380px;
+  max-width: 370px;
 
   margin: 24px 0 0 auto;
 
@@ -226,18 +275,16 @@ main {
 
   line-height: 1.4;
 
-  color: #f7f1e8;
+  color: #f8f2e8;
 }
 
-
-/* MOBILE-ONLY INTRO OFF ON DESKTOP */
 
 .mobile-intro {
   display: none;
 }
 
 
-/* BULLETS BELOW PHOTO */
+/* BULLETS BELOW HERO */
 
 .hero-summary {
   width: min(100% - 40px, 1040px);
@@ -245,17 +292,22 @@ main {
   margin: 42px auto 0;
 }
 
+
 .hero-summary ul {
   margin: 0 0 30px;
+
   padding-left: 22px;
 }
+
 
 .hero-summary li {
   margin-bottom: 10px;
 }
 
+
 .text-link {
   font-size: 14px;
+
   text-decoration: none;
 
   border-bottom: 1px solid currentColor;
@@ -268,14 +320,17 @@ main {
 
 .content {
   width: min(100% - 40px, 1120px);
+
   margin: 0 auto;
 }
+
 
 .section {
   padding: 110px 0;
 
   border-bottom: 1px solid #ded9cf;
 }
+
 
 .section-heading {
   margin-bottom: 56px;
@@ -290,6 +345,7 @@ main {
   border-top: 1px solid #1d1d1b;
 }
 
+
 .event {
   display: grid;
 
@@ -302,6 +358,7 @@ main {
   border-bottom: 1px solid #ded9cf;
 }
 
+
 .date {
   padding-top: 4px;
 
@@ -311,9 +368,11 @@ main {
   letter-spacing: 0.12em;
 }
 
+
 .event h3 {
   margin-bottom: 4px;
 }
+
 
 .event p,
 .past-list p,
@@ -325,9 +384,11 @@ main {
   color: #55534f;
 }
 
+
 .subsection {
   margin-top: 80px;
 }
+
 
 .subheading {
   margin-bottom: 24px;
@@ -335,11 +396,13 @@ main {
   font-size: 28px;
 }
 
+
 .past-list p {
   padding: 14px 0;
 
   border-bottom: 1px solid #ded9cf;
 }
+
 
 .past-list span {
   display: inline-block;
@@ -368,17 +431,20 @@ main {
   align-items: start;
 }
 
+
 .research-block h3 {
   font-size: clamp(30px, 4vw, 46px);
 
   line-height: 1.2;
 }
 
+
 .research-block p {
   font-size: 18px;
 
   line-height: 1.8;
 }
+
 
 .research-info {
   display: grid;
@@ -390,13 +456,16 @@ main {
   margin-top: 60px;
 }
 
+
 .research-info li {
   margin-bottom: 9px;
 }
 
+
 .research-image-wrap {
   width: 100%;
 }
+
 
 .research-image {
   display: block;
@@ -422,6 +491,7 @@ main {
   gap: 18px;
 }
 
+
 .media-card {
   min-height: 230px;
 
@@ -440,9 +510,11 @@ main {
   transition: transform 0.2s ease;
 }
 
+
 .media-card:hover {
   transform: translateY(-4px);
 }
+
 
 .media-card span {
   margin-bottom: auto;
@@ -453,6 +525,7 @@ main {
 
   text-transform: uppercase;
 }
+
 
 .media-card h3 {
   margin-bottom: 6px;
@@ -467,6 +540,7 @@ main {
   min-height: 60vh;
 }
 
+
 .contact-copy {
   max-width: 500px;
 
@@ -475,12 +549,14 @@ main {
   font-size: 18px;
 }
 
+
 .contact-links {
   display: flex;
   flex-wrap: wrap;
 
   gap: 24px;
 }
+
 
 .contact-links a {
   text-decoration: none;
@@ -516,11 +592,13 @@ footer {
     grid-template-columns: 1fr;
   }
 
+
   .research-image {
     max-width: 420px;
 
     margin: 35px auto 0;
   }
+
 
   .research-info {
     grid-template-columns: 1fr;
@@ -535,7 +613,7 @@ footer {
 
 @media (max-width: 760px) {
 
-  /* NAV DOES NOT FOLLOW SCROLL */
+  /* 메뉴는 스크롤하면 위로 사라짐 */
 
   .site-header {
     position: static;
@@ -549,19 +627,22 @@ footer {
     padding: 20px;
   }
 
+
   .name {
     font-size: 26px;
   }
+
 
   .nav {
     width: 100%;
 
     display: flex;
 
-    gap: 16px;
-
     flex-wrap: nowrap;
+
+    gap: 16px;
   }
+
 
   .nav a {
     font-size: 9px;
@@ -570,39 +651,66 @@ footer {
   }
 
 
-  /* FULL-WIDTH PHOTO */
+  /*
+     모바일에서는 원본 사진의 가운데 부분을
+     세로형 hero처럼 보여줌.
+     절대 가로로 늘리지 않음.
+  */
 
   .hero-photo {
-    width: 100vw;
+    width: 100%;
 
-    margin-left: 0;
+    min-height: 0;
+    height: 560px;
+
+    display: block;
+
+    background: #ad7948;
   }
+
+
+  .hero-photo::before {
+    display: none;
+  }
+
 
   .hero-photo img {
     width: 100%;
+    height: 100%;
 
-    height: auto;
+    max-width: none;
 
-    object-fit: contain;
+    object-fit: cover;
+
+    /* 너 + 드레스 + 피아노 중심 */
+    object-position: 47% center;
   }
 
 
-  /* TEXT STAYS INSIDE PHOTO */
+  /* MOBILE NAME */
 
   .hero-overlay {
     top: 7%;
-    right: 4%;
 
-    width: 42%;
+    right: 5%;
 
-    color: #f7f1e8;
+    width: 43%;
+
+    color: #f8f2e8;
+
+    text-align: right;
+
+    text-shadow:
+      0 1px 8px rgba(0, 0, 0, 0.42);
   }
 
+
   .hero-overlay h1 {
-    font-size: clamp(28px, 7vw, 42px);
+    font-size: clamp(29px, 8vw, 42px);
 
     line-height: 0.9;
   }
+
 
   .hero-eyebrow {
     margin-bottom: 7px;
@@ -613,18 +721,19 @@ footer {
   }
 
 
-  /* LONG SENTENCE BELOW PHOTO */
+  /* 긴 소개문은 사진 아래 */
 
   .desktop-intro {
     display: none;
   }
+
 
   .mobile-intro {
     display: block;
 
     width: calc(100% - 36px);
 
-    margin: 25px auto 0;
+    margin: 26px auto 0;
 
     font-family: "Cormorant Garamond", serif;
 
@@ -637,23 +746,26 @@ footer {
   .hero-summary {
     width: calc(100% - 36px);
 
-    margin-top: 26px;
+    margin-top: 28px;
   }
+
 
   .hero-summary ul {
     font-size: 14px;
   }
 
 
-  /* REST OF SITE */
+  /* CONTENT */
 
   .content {
     width: calc(100% - 36px);
   }
 
+
   .section {
     padding: 78px 0;
   }
+
 
   .event {
     grid-template-columns: 1fr;
@@ -661,47 +773,24 @@ footer {
     gap: 7px;
   }
 
+
   .past-list span {
     display: block;
 
     margin-bottom: 3px;
   }
 
+
   .research-info,
   .media-grid {
     grid-template-columns: 1fr;
   }
 
+
   .research-image {
     width: 82%;
-  }
 
-}
-@media (max-width: 760px) {
-
-  .hero-photo {
-    position: relative;
-    width: 100%;
-    height: 520px;
-    overflow: hidden;
-  }
-
-  .hero-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 45% center;
-  }
-
-  .hero-overlay {
-    top: 7%;
-    right: 5%;
-    width: 46%;
-  }
-
-  .hero-overlay h1 {
-    font-size: 38px;
-    line-height: 0.9;
+    margin: 30px auto 0;
   }
 
 }
