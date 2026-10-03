@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Quicksand:wght@400;500&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -8,10 +10,11 @@ html {
 
 body {
   margin: 0;
-  background: #f7f6f2;
-  color: #171717;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
+  background: #f7f5f0;
+  color: #1d1d1b;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
 }
 
 a {
@@ -27,27 +30,38 @@ a {
   align-items: center;
   gap: 32px;
   padding: 22px 5vw;
-  background: rgba(247, 246, 242, 0.96);
-  border-bottom: 1px solid #dedbd3;
+  background: rgba(247, 245, 240, 0.96);
+  border-bottom: 1px solid #ded9cf;
+  backdrop-filter: blur(8px);
 }
 
 .name {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 20px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
   text-decoration: none;
 }
 
 .nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 26px;
 }
 
 .nav a {
-  font-size: 13px;
-  letter-spacing: 0.06em;
+  font-family: "Quicksand", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+.nav a:hover,
+.text-link:hover,
+.contact-links a:hover {
+  opacity: 0.55;
 }
 
 main {
@@ -57,7 +71,7 @@ main {
 
 .section {
   padding: 110px 0;
-  border-bottom: 1px solid #dedbd3;
+  border-bottom: 1px solid #ded9cf;
 }
 
 .hero {
@@ -68,51 +82,60 @@ main {
 }
 
 .eyebrow {
-  margin: 0 0 14px;
+  margin: 0 0 15px;
+  font-family: "Quicksand", sans-serif;
   font-size: 12px;
-  letter-spacing: 0.14em;
+  font-weight: 500;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 h1,
 h2,
 h3 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", serif;
   font-weight: 400;
 }
 
 h1 {
+  max-width: 900px;
   margin: 0;
-  font-size: clamp(52px, 9vw, 108px);
-  line-height: 0.96;
+  font-size: clamp(58px, 9vw, 112px);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
 }
 
 h2 {
   margin: 0;
-  font-size: clamp(38px, 6vw, 68px);
+  font-size: clamp(42px, 6vw, 70px);
+  line-height: 1;
+  letter-spacing: -0.025em;
 }
 
 h3 {
   margin-top: 0;
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .intro {
-  max-width: 670px;
-  margin: 38px 0 24px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 22px;
+  max-width: 700px;
+  margin: 40px 0 25px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.8;
 }
 
 .at-a-glance {
-  max-width: 680px;
-  margin: 8px 0 32px;
-  padding-left: 20px;
+  max-width: 720px;
+  margin: 10px 0 34px;
+  padding-left: 21px;
+  font-size: 16px;
 }
 
 .at-a-glance li,
 .two-column li {
-  margin-bottom: 8px;
+  margin-bottom: 9px;
 }
 
 .text-link {
@@ -127,7 +150,7 @@ h3 {
 }
 
 .schedule-list {
-  border-top: 1px solid #171717;
+  border-top: 1px solid #1d1d1b;
 }
 
 .event {
@@ -135,13 +158,14 @@ h3 {
   grid-template-columns: 170px 1fr;
   gap: 32px;
   padding: 30px 0;
-  border-bottom: 1px solid #dedbd3;
+  border-bottom: 1px solid #ded9cf;
 }
 
 .date {
   padding-top: 4px;
   font-size: 12px;
-  letter-spacing: 0.1em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
 }
 
 .event h3 {
@@ -154,7 +178,7 @@ h3 {
 .media-card p,
 .contact-copy {
   margin: 0;
-  color: #4f4f4f;
+  color: #55534f;
 }
 
 .subsection {
@@ -163,31 +187,34 @@ h3 {
 
 .subheading {
   margin-bottom: 24px;
-  font-size: 22px;
+  font-size: 28px;
 }
 
 .past-list p {
   padding: 14px 0;
-  border-bottom: 1px solid #dedbd3;
+  border-bottom: 1px solid #ded9cf;
 }
 
 .past-list span {
   display: inline-block;
   min-width: 120px;
-  color: #171717;
+  color: #1d1d1b;
   font-size: 12px;
+  letter-spacing: 0.08em;
 }
 
 .research-block {
-  max-width: 760px;
+  max-width: 780px;
 }
 
 .research-block h3 {
-  font-size: clamp(26px, 4vw, 42px);
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.2;
 }
 
 .research-block p {
   font-size: 18px;
+  line-height: 1.8;
 }
 
 .two-column {
@@ -209,15 +236,24 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  border: 1px solid #cfcac0;
+  border: 1px solid #cec8bd;
   text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.media-card:hover {
+  transform: translateY(-4px);
 }
 
 .media-card span {
   margin-bottom: auto;
   font-size: 11px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.media-card h3 {
+  margin-bottom: 6px;
 }
 
 .contact-section {
@@ -246,27 +282,60 @@ footer {
   margin: 0 auto;
   padding: 28px 0 48px;
   font-size: 12px;
-  color: #6a6a6a;
+  color: #77736d;
 }
 
+
+/* MOBILE */
 @media (max-width: 760px) {
+
+  /* 모바일에서는 메뉴가 화면을 따라다니지 않음 */
   .site-header {
-    align-items: flex-start;
+    position: static;
+    padding: 20px;
     flex-direction: column;
-    gap: 12px;
+    align-items: flex-start;
+    gap: 14px;
+    background: #f7f5f0;
+    backdrop-filter: none;
+  }
+
+  .name {
+    font-size: 25px;
   }
 
   .nav {
-    gap: 14px;
+    gap: 15px;
+  }
+
+  .nav a {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+
+  main {
+    width: min(100% - 36px, 1040px);
   }
 
   .section {
-    padding: 78px 0;
+    padding: 75px 0;
+  }
+
+  .hero {
+    min-height: 70vh;
+  }
+
+  h1 {
+    font-size: clamp(52px, 17vw, 78px);
+  }
+
+  .intro {
+    font-size: 17px;
   }
 
   .event {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 7px;
   }
 
   .two-column,
