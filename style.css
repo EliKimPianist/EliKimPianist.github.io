@@ -964,3 +964,35 @@ footer {
   }
 
 }
+/* ========================================
+   TOP-LEFT ELI KIM WORDMARK
+   Match navigation typography
+======================================== */
+
+.wordmark-eli,
+.wordmark-kim {
+  font-family: "Quicksand", sans-serif;
+
+  font-size: 36px;
+
+  font-weight: 400;
+
+  letter-spacing: 0.02em;
+
+  text-transform: uppercase;
+}
+
+.wordmark-kim {
+  margin-left: 0.12em;
+}
+
+@media (max-width: 760px) {
+
+  .wordmark-eli,
+  .wordmark-kim {
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+}
