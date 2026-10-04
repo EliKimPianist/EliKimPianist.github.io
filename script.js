@@ -1,14 +1,66 @@
 /* ========================================
    PERFORMANCE DATABASE
 
-   앞으로 새 공연이 생기면
-   이 리스트에만 추가하면 됩니다.
+   새 공연이 생기면 여기에만 추가하면 됩니다.
 
-   date 형식은 반드시:
+   date:
    YYYY-MM-DD
 ======================================== */
 
 const performances = [
+
+  /* =====================================
+     2026
+  ====================================== */
+
+  {
+    date: "2026-04-11",
+    venue: "Smith Memorial Recital Hall",
+    location: "Illinois, USA",
+    type: "Doctoral Solo Recital"
+  },
+
+  {
+    date: "2026-04-28",
+    venue: "Smith Memorial Recital Hall",
+    location: "Illinois, USA",
+    type: "Doctoral Solo Recital"
+  },
+
+  {
+    date: "2026-05-02",
+    venue: "The Windsor of Savoy",
+    location: "Illinois, USA",
+    type: "Resonance Concert"
+  },
+
+  {
+    date: "2026-06-17",
+    venue: "Chungmu Art Center",
+    location: "Seoul, Republic of Korea",
+    type: "Junggu Wednesday Concert"
+  },
+
+  {
+    date: "2026-08-13",
+    venue: "S Talent Academy",
+    location: "Da Nang, Vietnam",
+    type: "Piano Duo Recital"
+  },
+
+  {
+    date: "2026-08-16",
+    venue: "Duc Tri Piano Boutique",
+    location: "Ho Chi Minh City, Vietnam",
+    type: "Recital"
+  },
+
+  {
+    date: "2026-08-18",
+    venue: "Harmony Bechstein Academy",
+    location: "Ho Chi Minh City, Vietnam",
+    type: "Recital"
+  },
 
   {
     date: "2026-10-01",
@@ -38,6 +90,11 @@ const performances = [
     type: "Lunchtime Recital"
   },
 
+
+  /* =====================================
+     2027
+  ====================================== */
+
   {
     date: "2027-01-21",
     venue: "St Mary-le-Bow Church",
@@ -49,7 +106,7 @@ const performances = [
     date: "2027-02-15",
     venue: "Pusey House",
     location: "Oxford, UK",
-    type: "Recital"
+    type: "Lunchtime Recital"
   },
 
   {
@@ -63,7 +120,7 @@ const performances = [
     date: "2027-06-17",
     venue: "St Ann’s Church",
     location: "Dublin, Ireland",
-    type: "Recital"
+    type: "Lunchtime Recital"
   },
 
   {
@@ -84,28 +141,38 @@ const performances = [
     date: "2027-07-12",
     venue: "St Stephen’s",
     location: "Bristol, UK",
-    type: "Recital"
+    type: "Lunchtime Recital"
   },
 
   {
     date: "2027-11-06",
     venue: "St Alfege Greenwich",
     location: "London, UK",
-    type: "Recital"
+    type: "Lunchtime Recital"
   },
+
+
+  /* =====================================
+     2028
+  ====================================== */
 
   {
     date: "2028-01-10",
     venue: "All Saints’ High Wycombe",
     location: "Buckinghamshire, UK",
-    type: "Recital"
+    type: "Lunchtime Recital"
   },
+
+
+  /* =====================================
+     2029
+  ====================================== */
 
   {
     date: "2029-06-19",
     venue: "Romsey Abbey",
     location: "Hampshire, UK",
-    type: "Recital"
+    type: "Lunchtime Recital"
   }
 
 ];
@@ -113,16 +180,8 @@ const performances = [
 
 
 /* ========================================
-   DATE FUNCTIONS
+   DATE
 ======================================== */
-
-/*
-  "2027-06-16" 같은 날짜를
-  사용자의 현지 시간 기준 Date로 변환.
-
-  UTC 문제 때문에 new Date("2027-06-16")
-  방식을 일부러 사용하지 않습니다.
-*/
 
 function parseLocalDate(dateString) {
 
@@ -140,9 +199,6 @@ function parseLocalDate(dateString) {
 }
 
 
-/*
-  오늘 날짜를 00:00 기준으로 만듭니다.
-*/
 
 function getToday() {
 
@@ -157,18 +213,13 @@ function getToday() {
 }
 
 
-/*
-  날짜 표시:
-  2026-10-15
-  →
-  15 OCT 2026
-*/
 
 function formatPerformanceDate(dateString) {
 
-  const date = parseLocalDate(dateString);
+  const date =
+    parseLocalDate(dateString);
 
-  const monthNames = [
+  const months = [
     "JAN",
     "FEB",
     "MAR",
@@ -183,15 +234,17 @@ function formatPerformanceDate(dateString) {
     "DEC"
   ];
 
+
   const day =
     String(date.getDate())
       .padStart(2, "0");
 
   const month =
-    monthNames[date.getMonth()];
+    months[date.getMonth()];
 
   const year =
     date.getFullYear();
+
 
   return `${day} ${month} ${year}`;
 
@@ -200,16 +253,76 @@ function formatPerformanceDate(dateString) {
 
 
 /* ========================================
-   SCHEDULE SORTING
+   CREATE EVENT
+======================================== */
+
+function createPerformanceElement(performance) {
+
+  const article =
+    document.createElement("article");
+
+  article.className = "event";
+
+
+  article.innerHTML = `
+
+    <div class="date">
+
+      ${formatPerformanceDate(
+        performance.date
+      )}
+
+    </div>
+
+
+    <div>
+
+      <h3>
+
+        ${performance.venue}
+
+      </h3>
+
+
+      <p>
+
+        ${performance.location}
+
+        ${
+          performance.type
+            ? ` · ${performance.type}`
+            : ""
+        }
+
+      </p>
+
+    </div>
+
+  `;
+
+
+  return article;
+
+}
+
+
+
+/* ========================================
+   RENDER SCHEDULE
 ======================================== */
 
 function renderSchedule() {
 
   const upcomingList =
-    document.querySelector("#upcoming-list");
+    document.querySelector(
+      "#upcoming-list"
+    );
+
 
   const pastList =
-    document.querySelector("#past-list");
+    document.querySelector(
+      "#past-list"
+    );
 
 
   if (!upcomingList || !pastList) {
@@ -217,22 +330,26 @@ function renderSchedule() {
   }
 
 
-  const today = getToday();
+  const today =
+    getToday();
 
 
-  /*
-    공연 당일은 아직 Upcoming으로 둡니다.
 
-    다음 날이 되면 자동으로 Past로 이동.
-  */
+  /* =====================================
+     UPCOMING
+
+     공연 당일까지 Upcoming.
+     다음 날 Past로 이동.
+  ====================================== */
 
   const upcoming =
     performances
       .filter((performance) => {
 
         return (
-          parseLocalDate(performance.date)
-          >= today
+          parseLocalDate(
+            performance.date
+          ) >= today
         );
 
       })
@@ -246,14 +363,22 @@ function renderSchedule() {
 
       });
 
+
+
+  /* =====================================
+     PAST
+
+     가장 최근 공연이 위.
+  ====================================== */
 
   const past =
     performances
       .filter((performance) => {
 
         return (
-          parseLocalDate(performance.date)
-          < today
+          parseLocalDate(
+            performance.date
+          ) < today
         );
 
       })
@@ -270,80 +395,44 @@ function renderSchedule() {
 
 
   /* =====================================
-     UPCOMING
+     DISPLAY UPCOMING
   ====================================== */
 
   upcomingList.innerHTML = "";
 
 
-  upcoming.forEach((performance) => {
+  upcoming.forEach(
+    (performance) => {
 
-    const article =
-      document.createElement("article");
+      upcomingList.appendChild(
+        createPerformanceElement(
+          performance
+        )
+      );
 
-    article.className = "event";
-
-
-    article.innerHTML = `
-
-      <div class="date">
-        ${formatPerformanceDate(performance.date)}
-      </div>
-
-      <div>
-
-        <h3>
-          ${performance.venue}
-        </h3>
-
-        <p>
-          ${performance.location}
-          ${performance.type
-            ? ` · ${performance.type}`
-            : ""
-          }
-        </p>
-
-      </div>
-
-    `;
-
-
-    upcomingList.appendChild(article);
-
-  });
+    }
+  );
 
 
 
   /* =====================================
-     PAST
+     DISPLAY PAST
   ====================================== */
 
   pastList.innerHTML = "";
 
 
-  past.forEach((performance) => {
+  past.forEach(
+    (performance) => {
 
-    const item =
-      document.createElement("p");
+      pastList.appendChild(
+        createPerformanceElement(
+          performance
+        )
+      );
 
-
-    item.innerHTML = `
-
-      <span>
-        ${formatPerformanceDate(performance.date)}
-      </span>
-
-      ${performance.venue}
-      ·
-      ${performance.location}
-
-    `;
-
-
-    pastList.appendChild(item);
-
-  });
+    }
+  );
 
 }
 
@@ -354,7 +443,9 @@ function renderSchedule() {
 ======================================== */
 
 const revealElements =
-  document.querySelectorAll(".reveal");
+  document.querySelectorAll(
+    ".reveal"
+  );
 
 
 const observer =
@@ -362,21 +453,26 @@ const observer =
 
     (entries) => {
 
-      entries.forEach((entry) => {
+      entries.forEach(
+        (entry) => {
 
-        if (entry.isIntersecting) {
+          if (
+            entry.isIntersecting
+          ) {
 
-          entry.target
-            .classList
-            .add("visible");
-
-          observer.unobserve(
             entry.target
-          );
+              .classList
+              .add("visible");
+
+
+            observer.unobserve(
+              entry.target
+            );
+
+          }
 
         }
-
-      });
+      );
 
     },
 
@@ -390,7 +486,9 @@ const observer =
 revealElements.forEach(
   (element) => {
 
-    observer.observe(element);
+    observer.observe(
+      element
+    );
 
   }
 );
@@ -398,11 +496,13 @@ revealElements.forEach(
 
 
 /* ========================================
-   HEADER SCROLL
+   HEADER
 ======================================== */
 
 const header =
-  document.querySelector(".site-header");
+  document.querySelector(
+    ".site-header"
+  );
 
 
 function updateHeader() {
@@ -412,7 +512,9 @@ function updateHeader() {
   }
 
 
-  if (window.scrollY > 30) {
+  if (
+    window.scrollY > 30
+  ) {
 
     header
       .classList
@@ -429,6 +531,7 @@ function updateHeader() {
 }
 
 
+
 window.addEventListener(
   "scroll",
   updateHeader,
@@ -440,7 +543,7 @@ window.addEventListener(
 
 
 /* ========================================
-   START WEBSITE
+   START
 ======================================== */
 
 renderSchedule();
