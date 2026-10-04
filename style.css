@@ -996,3 +996,12 @@ footer {
   }
 
 }
+/* HERO TEXT — ALL CAPS */
+
+.hero-eyebrow,
+.hero-overlay h1,
+.hero-intro,
+.desktop-intro {
+  font-family: "Quicksand", sans-serif;
+  text-transform: uppercase;
+}
