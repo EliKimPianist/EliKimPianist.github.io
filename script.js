@@ -549,3 +549,58 @@ window.addEventListener(
 renderSchedule();
 
 updateHeader();
+/* ========================================
+   GALLERY — MORE PHOTOS
+======================================== */
+
+const galleryGrid =
+  document.querySelector(
+    "#gallery-grid"
+  );
+
+
+const galleryToggle =
+  document.querySelector(
+    "#gallery-toggle"
+  );
+
+
+if (
+  galleryGrid &&
+  galleryToggle
+) {
+
+  galleryToggle.addEventListener(
+    "click",
+    () => {
+
+      const isExpanded =
+        galleryGrid
+          .classList
+          .toggle("expanded");
+
+
+      if (isExpanded) {
+
+        galleryToggle.innerHTML =
+          `SHOW LESS <span>↑</span>`;
+
+      } else {
+
+        galleryToggle.innerHTML =
+          `MORE PHOTOS <span>↓</span>`;
+
+
+        document
+          .querySelector("#gallery")
+          .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+      }
+
+    }
+  );
+
+}
