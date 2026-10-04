@@ -1,373 +1,485 @@
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cormorant+Garamond:wght@400;500&family=Quicksand:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:wght@400;500&family=Quicksand:wght@400;500&display=swap');
+
 
 * {
   box-sizing: border-box;
 }
 
+
 html {
   scroll-behavior: smooth;
 }
 
+
 body {
   margin: 0;
   padding: 0;
+
   overflow-x: hidden;
+
   background: #f7f5f0;
   color: #1d1d1b;
+
   font-family: "Quicksand", sans-serif;
   font-weight: 400;
   line-height: 1.7;
 }
+
 
 a {
   color: inherit;
 }
 
 
-/* =========================
+/* ========================================
    HEADER
-========================= */
+======================================== */
 
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
+
   width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 5vw;
-  background: rgba(247, 245, 240, 0.94);
+
+  padding: 24px 5vw;
+
+  background: rgba(247, 245, 240, 0.97);
+
   border-bottom: 1px solid rgba(40, 35, 30, 0.08);
-  backdrop-filter: blur(10px);
+
+  backdrop-filter: blur(8px);
+
   transition:
     padding 0.35s ease,
     background 0.35s ease;
 }
 
+
 .site-header.scrolled {
-  padding-top: 13px;
-  padding-bottom: 13px;
-  background: rgba(247, 245, 240, 0.98);
+  padding-top: 16px;
+  padding-bottom: 16px;
+
+  background: rgba(247, 245, 240, 0.99);
 }
 
 
-/* =========================
-   WORDMARK
-========================= */
+/* ========================================
+   ELI KIM WORDMARK
+======================================== */
 
 .wordmark {
-  position: relative;
   display: inline-flex;
   align-items: baseline;
-  gap: 5px;
+
   text-decoration: none;
-  color: #1d1d1b;
+
+  color: #29231e;
+
+  line-height: 1;
+
   transition:
-    opacity 0.25s ease,
+    opacity 0.35s ease,
     transform 0.35s ease;
 }
 
-.wordmark:hover {
-  opacity: 0.68;
+
+.wordmark-eli,
+.wordmark-kim {
+  font-family: "Italiana", serif;
+
+  font-size: 42px;
+  font-weight: 400;
+
+  letter-spacing: -0.055em;
+
+  font-style: normal;
 }
 
-.wordmark-eli {
-  font-family: "Bodoni Moda", serif;
-  font-size: 33px;
-  font-weight: 500;
-  letter-spacing: -0.07em;
-}
 
 .wordmark-kim {
-  font-family: "Bodoni Moda", serif;
-  font-size: 31px;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.06em;
+  margin-left: 0.10em;
 }
+
+
+.wordmark:hover {
+  opacity: 0.62;
+
+  transform: translateY(-1px);
+}
+
+
+/* 기존 밑줄 효과 완전 삭제 */
 
 .wordmark::after {
-  content: "";
-  position: absolute;
-  left: 2px;
-  right: 0;
-  bottom: -4px;
-  height: 1px;
-  background: #1d1d1b;
-  transform: scaleX(0.28);
-  transform-origin: left;
-  opacity: 0.55;
-  transition:
-    transform 0.35s ease,
-    opacity 0.35s ease;
-}
-
-.wordmark:hover::after {
-  transform: scaleX(1);
-  opacity: 0.8;
+  display: none;
+  content: none;
 }
 
 
-/* =========================
-   NAV
-========================= */
+/* ========================================
+   NAVIGATION
+======================================== */
 
 .nav {
   display: flex;
-  gap: 28px;
+  gap: 30px;
 }
+
 
 .nav a {
   position: relative;
+
   font-size: 11px;
   font-weight: 500;
+
   letter-spacing: 0.14em;
+
   text-transform: uppercase;
+
   text-decoration: none;
 }
 
+
 .nav a::after {
   content: "";
+
   position: absolute;
+
   left: 0;
   right: 0;
+
   bottom: -5px;
+
   height: 1px;
+
   background: currentColor;
+
   transform: scaleX(0);
-  transition: transform 0.25s ease;
+
+  transition: transform 0.3s ease;
 }
+
 
 .nav a:hover::after {
   transform: scaleX(1);
 }
 
 
-/* =========================
+/* ========================================
    TYPOGRAPHY
-========================= */
+======================================== */
 
 .eyebrow {
   margin: 0 0 14px;
+
   font-size: 12px;
   font-weight: 500;
+
   letter-spacing: 0.17em;
+
   text-transform: uppercase;
 }
+
 
 h1,
 h2,
 h3 {
   font-family: "Cormorant Garamond", serif;
+
   font-weight: 400;
 }
 
+
 h1 {
   margin: 0;
-  font-size: clamp(56px, 5.5vw, 88px);
+
+  font-size: clamp(58px, 5.5vw, 90px);
+
   line-height: 0.9;
+
   letter-spacing: -0.03em;
 }
 
+
 h2 {
   margin: 0;
+
   font-size: clamp(44px, 6vw, 72px);
+
   line-height: 1;
+
   letter-spacing: -0.025em;
 }
 
+
 h3 {
   margin-top: 0;
+
   font-size: 28px;
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* ========================================
+   HERO / HOME
+======================================== */
 
 main {
   width: 100%;
+
   margin: 0;
   padding: 0;
 }
 
+
 .hero {
   width: 100%;
+
   margin: 0;
+
   padding: 0 0 100px;
 }
 
+
+/* 사진 하나만 크게 */
+
 .hero-photo {
   position: relative;
+
   width: 100%;
-  min-height: 800px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  height: calc(100vh - 105px);
+
+  min-height: 700px;
+
+  max-height: 920px;
+
   overflow: hidden;
+
   will-change: transform;
+
+  background: #000;
 }
 
-/* same photo in the background, enlarged + blurred */
-.hero-photo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
 
-  background-image: url("eli-main.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+/* 가짜 배경 / blur / 갈색 전부 삭제 */
 
-  filter: blur(22px) brightness(0.9);
-  transform: scale(1.12);
-}
-
-/* slight dark glaze */
+.hero-photo::before,
 .hero-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: rgba(0, 0, 0, 0.10);
-  pointer-events: none;
+  display: none;
+
+  content: none;
 }
 
-/* original image in the center, untouched */
+
+/* 실제 사진 */
+
 .hero-image {
-  position: relative;
-  z-index: 1;
   display: block;
-  width: auto;
-  height: 800px;
-  max-width: 100%;
-  object-fit: contain;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  /*
+    네 드레스와 피아노 중심.
+    사진 자체를 가로로 늘리는 게 아니라
+    큰 창에서 필요한 부분만 보여주는 방식.
+  */
+  object-position: 47% 55%;
+
   transform: none !important;
 }
+
+
+/* ========================================
+   HERO TEXT
+======================================== */
 
 .hero-overlay {
   position: absolute;
+
   z-index: 3;
+
   top: 10%;
   right: 5%;
+
   width: 31%;
+
+  padding: 0;
+
   text-align: right;
+
   color: #f8f2e8;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.34);
+
+  text-shadow:
+    0 2px 13px rgba(0, 0, 0, 0.35);
+
+  /*
+    글씨는 따로 날아가지 않음.
+    사진 전체와 같이 움직임.
+  */
   transform: none !important;
+
   opacity: 1 !important;
 }
 
-.hero-overlay h1,
+
+.hero-overlay h1 {
+  color: #f8f2e8;
+}
+
+
 .hero-eyebrow {
   color: #f8f2e8;
 }
 
+
 .hero-intro {
-  max-width: 370px;
-  margin: 24px 0 0 auto;
+  max-width: 390px;
+
+  margin: 25px 0 0 auto;
+
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(18px, 1.7vw, 25px);
-  line-height: 1.4;
+
+  font-size: clamp(19px, 1.7vw, 26px);
+
+  line-height: 1.38;
+
   color: #f8f2e8;
 }
+
 
 .mobile-intro {
   display: none;
 }
 
+
+/* ========================================
+   HOME BULLETS
+======================================== */
+
 .hero-summary {
   width: min(100% - 40px, 1040px);
-  margin: 42px auto 0;
+
+  margin: 46px auto 0;
 }
+
 
 .hero-summary ul {
   margin: 0 0 30px;
+
   padding-left: 22px;
 }
+
 
 .hero-summary li {
   margin-bottom: 10px;
 }
 
+
 .text-link {
   font-size: 14px;
+
   text-decoration: none;
+
   border-bottom: 1px solid currentColor;
 }
 
 
-/* =========================
+/* ========================================
    SCROLL REVEAL
-========================= */
+======================================== */
 
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
+
+  transform: translateY(42px);
+
   transition:
     opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+
 .reveal.visible {
   opacity: 1;
+
   transform: translateY(0);
 }
 
 
-/* =========================
+/* ========================================
    CONTENT
-========================= */
+======================================== */
 
 .content {
   width: min(100% - 40px, 1120px);
+
   margin: 0 auto;
 }
 
+
 .section {
   padding: 115px 0;
+
   border-bottom: 1px solid #ded9cf;
 }
+
 
 .section-heading {
   margin-bottom: 56px;
 }
 
 
-/* =========================
+/* ========================================
    SCHEDULE
-========================= */
+======================================== */
 
 .schedule-list {
   border-top: 1px solid #1d1d1b;
 }
 
+
 .event {
   display: grid;
+
   grid-template-columns: 170px 1fr;
+
   gap: 32px;
+
   padding: 30px 0;
+
   border-bottom: 1px solid #ded9cf;
+
   transition: transform 0.3s ease;
 }
+
 
 .event:hover {
   transform: translateX(6px);
 }
 
+
 .date {
   padding-top: 4px;
+
   font-size: 12px;
   font-weight: 500;
+
   letter-spacing: 0.12em;
 }
+
 
 .event h3 {
   margin-bottom: 4px;
 }
+
 
 .event p,
 .past-list p,
@@ -375,320 +487,425 @@ main {
 .media-card p,
 .contact-copy {
   margin: 0;
+
   color: #55534f;
 }
+
 
 .subsection {
   margin-top: 80px;
 }
 
+
 .subheading {
   margin-bottom: 24px;
+
   font-size: 28px;
 }
 
+
 .past-list p {
   padding: 14px 0;
+
   border-bottom: 1px solid #ded9cf;
 }
 
+
 .past-list span {
   display: inline-block;
+
   min-width: 120px;
+
   color: #1d1d1b;
+
   font-size: 12px;
+
   letter-spacing: 0.08em;
 }
 
 
-/* =========================
+/* ========================================
    RESEARCH
-========================= */
+======================================== */
 
 .research-grid {
   display: grid;
+
   grid-template-columns: 1.2fr 0.8fr;
+
   gap: 60px;
+
   align-items: start;
 }
 
+
 .research-block h3 {
   font-size: clamp(30px, 4vw, 46px);
+
   line-height: 1.2;
 }
 
+
 .research-block p {
   font-size: 18px;
+
   line-height: 1.8;
 }
 
+
 .research-info {
   display: grid;
+
   grid-template-columns: 1fr 1fr;
+
   gap: 42px;
+
   margin-top: 60px;
 }
+
 
 .research-info li {
   margin-bottom: 9px;
 }
 
+
 .research-image {
   display: block;
+
   width: 100%;
+
   max-width: 410px;
+
   height: auto;
+
   margin-left: auto;
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
 
 .research-image:hover {
   transform: scale(1.015);
 }
 
 
-/* =========================
+/* ========================================
    MEDIA
-========================= */
+======================================== */
 
 .media-grid {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
+
   gap: 18px;
 }
 
+
 .media-card {
   min-height: 230px;
+
   padding: 26px;
+
   display: flex;
+
   flex-direction: column;
+
   justify-content: flex-end;
+
   border: 1px solid #cec8bd;
+
   text-decoration: none;
+
   transition:
     transform 0.35s ease,
     background 0.35s ease;
 }
 
+
 .media-card:hover {
   transform: translateY(-7px);
+
   background: #eee9df;
 }
 
+
 .media-card span {
   margin-bottom: auto;
+
   font-size: 11px;
+
   letter-spacing: 0.12em;
+
   text-transform: uppercase;
 }
+
 
 .media-card h3 {
   margin-bottom: 6px;
 }
 
 
-/* =========================
+/* ========================================
    CONTACT
-========================= */
+======================================== */
 
 .contact-section {
   min-height: 60vh;
 }
 
+
 .contact-copy {
   max-width: 500px;
+
   margin: 28px 0;
+
   font-size: 18px;
 }
 
+
 .contact-links {
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 24px;
 }
 
+
 .contact-links a {
   text-decoration: none;
+
   border-bottom: 1px solid currentColor;
 }
 
 
-/* =========================
+/* ========================================
    FOOTER
-========================= */
+======================================== */
 
 footer {
   width: min(100% - 40px, 1120px);
+
   margin: 0 auto;
+
   padding: 28px 0 48px;
+
   font-size: 12px;
+
   color: #77736d;
 }
 
 
-/* =========================
+/* ========================================
    TABLET
-========================= */
+======================================== */
 
 @media (max-width: 900px) {
+
   .research-grid {
     grid-template-columns: 1fr;
   }
 
+
   .research-image {
     max-width: 420px;
+
     margin: 35px auto 0;
   }
+
 
   .research-info {
     grid-template-columns: 1fr;
   }
+
 }
 
 
-/* =========================
+/* ========================================
    MOBILE
-========================= */
+======================================== */
 
 @media (max-width: 760px) {
 
+  /* 모바일에서는 메뉴가 따라다니지 않음 */
+
   .site-header {
     position: static;
+
     flex-direction: column;
+
     align-items: flex-start;
-    gap: 14px;
-    padding: 18px 20px;
+
+    gap: 15px;
+
+    padding: 21px 20px;
   }
 
-  .wordmark-eli {
-    font-size: 30px;
-  }
 
+  .wordmark-eli,
   .wordmark-kim {
-    font-size: 28px;
+    font-size: 35px;
   }
+
 
   .nav {
     width: 100%;
+
+    display: flex;
+
     gap: 16px;
+
     flex-wrap: nowrap;
   }
 
+
   .nav a {
     font-size: 9px;
+
     letter-spacing: 0.09em;
   }
 
+
+  /* 모바일에서는 가운데로 줌인 */
+
   .hero-photo {
     width: 100%;
-    min-height: 0;
+
     height: 560px;
-    display: block;
+
+    min-height: 0;
+
+    max-height: none;
   }
 
-  .hero-photo::before {
-    background-position: center center;
-    filter: blur(16px) brightness(0.92);
-    transform: scale(1.08);
-  }
-
-  .hero-photo::after {
-    background: rgba(0, 0, 0, 0.08);
-  }
 
   .hero-image {
     width: 100%;
     height: 100%;
-    max-width: none;
+
     object-fit: cover;
+
     object-position: 47% center;
-    transform: none !important;
   }
+
 
   .hero-overlay {
     top: 7%;
+
     right: 5%;
-    width: 43%;
+
+    width: 44%;
+
     text-align: right;
-    transform: none !important;
-    opacity: 1 !important;
   }
+
 
   .hero-overlay h1 {
     font-size: clamp(29px, 8vw, 42px);
+
     line-height: 0.9;
   }
 
+
   .hero-eyebrow {
     margin-bottom: 7px;
+
     font-size: 7px;
+
     letter-spacing: 0.12em;
   }
+
+
+  /* 긴 설명은 모바일에서 사진 아래 */
 
   .desktop-intro {
     display: none;
   }
 
+
   .mobile-intro {
     display: block;
+
     width: calc(100% - 36px);
+
     margin: 26px auto 0;
+
     font-family: "Cormorant Garamond", serif;
+
     font-size: 20px;
+
     line-height: 1.4;
   }
 
+
   .hero-summary {
     width: calc(100% - 36px);
+
     margin-top: 28px;
   }
+
 
   .hero-summary ul {
     font-size: 14px;
   }
 
+
   .content {
     width: calc(100% - 36px);
   }
+
 
   .section {
     padding: 80px 0;
   }
 
+
   .event {
     grid-template-columns: 1fr;
+
     gap: 7px;
   }
 
+
   .past-list span {
     display: block;
+
     margin-bottom: 3px;
   }
+
 
   .research-info,
   .media-grid {
     grid-template-columns: 1fr;
   }
 
+
   .research-image {
     width: 82%;
+
     margin: 30px auto 0;
   }
+
 
   .reveal {
     transform: translateY(22px);
   }
+
 }
 
 
-/* =========================
-   ACCESSIBILITY
-========================= */
+/* ========================================
+   REDUCED MOTION
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
   html {
     scroll-behavior: auto;
   }
+
 
   .reveal,
   .reveal.visible,
@@ -697,7 +914,10 @@ footer {
   .event,
   .hero-photo {
     transition: none !important;
+
     transform: none !important;
+
     opacity: 1 !important;
   }
+
 }
