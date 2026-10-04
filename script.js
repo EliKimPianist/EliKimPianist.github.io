@@ -4,8 +4,6 @@
 
 const performances = [
 
-  /* 2026 — PAST */
-
   {
     date: "2026-04-11",
     time: "3:30 PM",
@@ -54,9 +52,6 @@ const performances = [
     type: "Lunchtime Recital"
   },
 
-
-  /* 2026 — UPCOMING */
-
   {
     date: "2026-10-15",
     time: "1:15 PM",
@@ -80,9 +75,6 @@ const performances = [
     location: "Manchester, UK",
     type: "Lunchtime Recital"
   },
-
-
-  /* 2027 */
 
   {
     date: "2027-01-21",
@@ -148,9 +140,6 @@ const performances = [
     type: "Lunchtime Recital"
   },
 
-
-  /* 2028 */
-
   {
     date: "2028-01-10",
     time: "1:10 PM",
@@ -158,9 +147,6 @@ const performances = [
     location: "Buckinghamshire, UK",
     type: "Lunchtime Recital"
   },
-
-
-  /* 2029 */
 
   {
     date: "2029-06-19",
@@ -208,7 +194,6 @@ function formatPerformanceDate(dateString) {
   const date =
     parseLocalDate(dateString);
 
-
   const months = [
     "JAN",
     "FEB",
@@ -224,19 +209,15 @@ function formatPerformanceDate(dateString) {
     "DEC"
   ];
 
-
   const day =
     String(date.getDate())
       .padStart(2, "0");
 
-
   const month =
     months[date.getMonth()];
 
-
   const year =
     date.getFullYear();
-
 
   return `${day} ${month} ${year}`;
 }
@@ -252,15 +233,13 @@ function createPerformanceElement(performance) {
   const article =
     document.createElement("article");
 
-
-  article.className = "event";
-
+  article.className =
+    "event";
 
   const dateAndTime =
     performance.time
       ? `${formatPerformanceDate(performance.date)} · ${performance.time}`
       : formatPerformanceDate(performance.date);
-
 
   article.innerHTML = `
 
@@ -275,15 +254,12 @@ function createPerformanceElement(performance) {
       </h3>
 
       <p>
-        ${performance.location}
-        ·
-        ${performance.type}
+        ${performance.location} · ${performance.type}
       </p>
 
     </div>
 
   `;
-
 
   return article;
 }
@@ -299,24 +275,15 @@ function renderSchedule() {
   const upcomingList =
     document.querySelector("#upcoming-list");
 
-
   const pastList =
     document.querySelector("#past-list");
-
 
   if (!upcomingList || !pastList) {
     return;
   }
 
-
   const today =
     getToday();
-
-
-  /*
-    공연 당일에는 Upcoming.
-    다음 날부터 자동으로 Past.
-  */
 
   const upcoming =
     performances
@@ -330,7 +297,6 @@ function renderSchedule() {
           parseLocalDate(b.date)
       );
 
-
   const past =
     performances
       .filter(
@@ -343,10 +309,8 @@ function renderSchedule() {
           parseLocalDate(a.date)
       );
 
-
   upcomingList.innerHTML = "";
   pastList.innerHTML = "";
-
 
   upcoming.forEach(performance => {
 
@@ -356,7 +320,6 @@ function renderSchedule() {
 
   });
 
-
   past.forEach(performance => {
 
     pastList.appendChild(
@@ -364,6 +327,7 @@ function renderSchedule() {
     );
 
   });
+
 }
 
 
@@ -374,44 +338,26 @@ function renderSchedule() {
 
 const galleryCaptions = {
 
-  1: "London, UK · 2026",
-
-  2: "Da Nang City, Vietnam · 2026",
-
-  3: "Ho Chi Minh City, Vietnam · 2026",
-
+  1: "London · 2026",
+  2: "Da Nang · 2026",
+  3: "Ho Chi Minh City · 2026",
   4: "Hong Kong · 2026",
-
   5: "California, USA · 2025",
-
   6: "Illinois, USA · 2024",
-
-  7: "Ho Chi Minh City, Vietnam · 2026",
-
-  8: "Da Nang City, Vietnam · 2026",
-
+  7: "Ho Chi Minh City · 2026",
+  8: "Da Nang · 2026",
   9: "Illinois, USA · 2026",
-
   10: "Hong Kong · 2026",
-
   11: "California, USA · 2025",
-
-  12: "Da Nang City, Vietnam · 2026",
-
+  12: "Da Nang · 2026",
   13: "Seoul, South Korea · 2024"
+
 };
 
 
 
 /* ========================================
    AUTOMATIC GALLERY
-
-   gallery-01.jpg
-   gallery-02.jpg
-   gallery-03.jpg
-   ...
-
-   실제로 있는 사진만 표시됨.
 ======================================== */
 
 const GALLERY_MAX_IMAGES = 50;
@@ -419,13 +365,11 @@ const GALLERY_MAX_IMAGES = 50;
 const GALLERY_INITIAL_VISIBLE = 6;
 
 
-
 function galleryFileName(number) {
 
   const padded =
     String(number)
       .padStart(2, "0");
-
 
   return `gallery-${padded}.jpg`;
 }
@@ -443,10 +387,8 @@ function checkGalleryImage(number) {
     const src =
       galleryFileName(number);
 
-
     const testImage =
       new Image();
-
 
     testImage.onload = () => {
 
@@ -457,17 +399,17 @@ function checkGalleryImage(number) {
 
     };
 
-
     testImage.onerror = () => {
 
       resolve(null);
 
     };
 
-
-    testImage.src = src;
+    testImage.src =
+      src;
 
   });
+
 }
 
 
@@ -484,14 +426,9 @@ function createGalleryItem(
   const item =
     document.createElement("div");
 
-
   item.className =
     "gallery-item";
 
-
-  /*
-    첫 6장 이후는 숨겨놓음.
-  */
 
   if (
     index >=
@@ -505,12 +442,8 @@ function createGalleryItem(
   }
 
 
-
-  /* IMAGE FRAME */
-
   const imageFrame =
     document.createElement("div");
-
 
   imageFrame.className =
     "gallery-image-frame";
@@ -519,14 +452,11 @@ function createGalleryItem(
   const image =
     document.createElement("img");
 
-
   image.src =
     imageData.src;
 
-
   image.alt =
     "Eli Sunghyun Kim performance";
-
 
   image.loading =
     "lazy";
@@ -537,33 +467,22 @@ function createGalleryItem(
   item.appendChild(imageFrame);
 
 
-
-  /* CAPTION */
-
   const captionText =
     galleryCaptions[
       imageData.number
     ];
 
 
-  /*
-    캡션이 등록된 사진에만
-    캡션 표시.
-  */
-
   if (captionText) {
 
     const caption =
       document.createElement("p");
 
-
     caption.className =
       "gallery-caption";
 
-
     caption.textContent =
       captionText;
-
 
     item.appendChild(caption);
 
@@ -586,12 +505,10 @@ async function renderGallery() {
       "#gallery-grid"
     );
 
-
   const galleryToggle =
     document.querySelector(
       "#gallery-toggle"
     );
-
 
   const galleryMoreWrap =
     document.querySelector(
@@ -609,10 +526,6 @@ async function renderGallery() {
 
   }
 
-
-  /*
-    gallery-01.jpg ~ gallery-50.jpg 확인
-  */
 
   const checks = [];
 
@@ -634,10 +547,6 @@ async function renderGallery() {
     await Promise.all(checks);
 
 
-  /*
-    실제 존재하는 파일만 남김.
-  */
-
   const existingImages =
     results
       .filter(Boolean)
@@ -647,7 +556,8 @@ async function renderGallery() {
       );
 
 
-  galleryGrid.innerHTML = "";
+  galleryGrid.innerHTML =
+    "";
 
 
   existingImages.forEach(
@@ -664,30 +574,22 @@ async function renderGallery() {
   );
 
 
-  /*
-    사진이 6장 이하이면
-    MORE PHOTOS 버튼도 숨김.
-  */
-
   if (
     existingImages.length <=
     GALLERY_INITIAL_VISIBLE
   ) {
 
-    galleryMoreWrap.hidden = true;
+    galleryMoreWrap.hidden =
+      true;
 
     return;
 
   }
 
 
-  galleryMoreWrap.hidden = false;
+  galleryMoreWrap.hidden =
+    false;
 
-
-
-  /* =====================================
-     MORE PHOTOS
-  ====================================== */
 
   galleryToggle.addEventListener(
     "click",
@@ -704,9 +606,7 @@ async function renderGallery() {
         galleryToggle.innerHTML =
           `SHOW LESS <span>↑</span>`;
 
-      }
-
-      else {
+      } else {
 
         galleryToggle.innerHTML =
           `MORE PHOTOS <span>↓</span>`;
@@ -750,7 +650,6 @@ if (
               .classList
               .add("visible");
 
-
             observer.unobserve(
               entry.target
             );
@@ -771,21 +670,21 @@ if (
   revealElements.forEach(
     element => {
 
-      observer.observe(element);
+      observer.observe(
+        element
+      );
 
     }
   );
 
-}
-
-else {
+} else {
 
   revealElements.forEach(
     element => {
 
-      element
-        .classList
-        .add("visible");
+      element.classList.add(
+        "visible"
+      );
 
     }
   );
@@ -810,7 +709,6 @@ function updateHeader() {
     return;
   }
 
-
   header.classList.toggle(
     "scrolled",
     window.scrollY > 30
@@ -830,7 +728,7 @@ window.addEventListener(
 
 
 /* ========================================
-   START WEBSITE
+   START
 ======================================== */
 
 renderSchedule();
