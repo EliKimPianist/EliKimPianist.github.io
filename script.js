@@ -338,18 +338,18 @@ function renderSchedule() {
 
 const galleryCaptions = {
 
-  1: "London · 2026",
-  2: "Da Nang · 2026",
-  3: "Ho Chi Minh City · 2026",
+  1: "London, UK · 2026",
+  2: "Da Nang City, Vietnam · 2026",
+  3: "Ho Chi Minh City, Vietnam · 2026",
   4: "Hong Kong · 2026",
   5: "California, USA · 2025",
   6: "Illinois, USA · 2024",
-  7: "Ho Chi Minh City · 2026",
-  8: "Da Nang · 2026",
+  7: "Ho Chi Minh City, Vietnam · 2026",
+  8: "Da Nang City, Vietnam · 2026",
   9: "Illinois, USA · 2026",
   10: "Hong Kong · 2026",
   11: "California, USA · 2025",
-  12: "Da Nang · 2026",
+  12: "Da Nang City, Vietnam · 2026",
   13: "Seoul, South Korea · 2024"
 
 };
