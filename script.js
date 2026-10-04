@@ -4,9 +4,7 @@
 
 const performances = [
 
-  /* =====================================
-     2026 — PAST
-  ====================================== */
+  /* 2026 — PAST */
 
   {
     date: "2026-04-11",
@@ -57,9 +55,7 @@ const performances = [
   },
 
 
-  /* =====================================
-     2026 — UPCOMING
-  ====================================== */
+  /* 2026 — UPCOMING */
 
   {
     date: "2026-10-15",
@@ -86,9 +82,7 @@ const performances = [
   },
 
 
-  /* =====================================
-     2027
-  ====================================== */
+  /* 2027 */
 
   {
     date: "2027-01-21",
@@ -155,9 +149,7 @@ const performances = [
   },
 
 
-  /* =====================================
-     2028
-  ====================================== */
+  /* 2028 */
 
   {
     date: "2028-01-10",
@@ -168,9 +160,7 @@ const performances = [
   },
 
 
-  /* =====================================
-     2029
-  ====================================== */
+  /* 2029 */
 
   {
     date: "2029-06-19",
@@ -191,35 +181,26 @@ const performances = [
 function parseLocalDate(dateString) {
 
   const [year, month, day] =
-    dateString
-      .split("-")
-      .map(Number);
-
+    dateString.split("-").map(Number);
 
   return new Date(
     year,
     month - 1,
     day
   );
-
 }
-
 
 
 function getToday() {
 
-  const now =
-    new Date();
-
+  const now = new Date();
 
   return new Date(
     now.getFullYear(),
     now.getMonth(),
     now.getDate()
   );
-
 }
-
 
 
 function formatPerformanceDate(dateString) {
@@ -245,18 +226,12 @@ function formatPerformanceDate(dateString) {
 
 
   const day =
-    String(
-      date.getDate()
-    ).padStart(
-      2,
-      "0"
-    );
+    String(date.getDate())
+      .padStart(2, "0");
 
 
   const month =
-    months[
-      date.getMonth()
-    ];
+    months[date.getMonth()];
 
 
   const year =
@@ -264,7 +239,6 @@ function formatPerformanceDate(dateString) {
 
 
   return `${day} ${month} ${year}`;
-
 }
 
 
@@ -273,18 +247,13 @@ function formatPerformanceDate(dateString) {
    PERFORMANCE ELEMENT
 ======================================== */
 
-function createPerformanceElement(
-  performance
-) {
+function createPerformanceElement(performance) {
 
   const article =
-    document.createElement(
-      "article"
-    );
+    document.createElement("article");
 
 
-  article.className =
-    "event";
+  article.className = "event";
 
 
   const dateAndTime =
@@ -317,7 +286,6 @@ function createPerformanceElement(
 
 
   return article;
-
 }
 
 
@@ -329,24 +297,15 @@ function createPerformanceElement(
 function renderSchedule() {
 
   const upcomingList =
-    document.querySelector(
-      "#upcoming-list"
-    );
+    document.querySelector("#upcoming-list");
 
 
   const pastList =
-    document.querySelector(
-      "#past-list"
-    );
+    document.querySelector("#past-list");
 
 
-  if (
-    !upcomingList ||
-    !pastList
-  ) {
-
+  if (!upcomingList || !pastList) {
     return;
-
   }
 
 
@@ -355,97 +314,108 @@ function renderSchedule() {
 
 
   /*
-    공연 당일 = Upcoming
-    다음 날부터 = Past
+    공연 당일에는 Upcoming.
+    다음 날부터 자동으로 Past.
   */
 
   const upcoming =
     performances
-
       .filter(
         performance =>
-
-          parseLocalDate(
-            performance.date
-          ) >= today
+          parseLocalDate(performance.date) >= today
       )
-
       .sort(
         (a, b) =>
-
-          parseLocalDate(a.date)
-          -
+          parseLocalDate(a.date) -
           parseLocalDate(b.date)
       );
 
 
   const past =
     performances
-
       .filter(
         performance =>
-
-          parseLocalDate(
-            performance.date
-          ) < today
+          parseLocalDate(performance.date) < today
       )
-
       .sort(
         (a, b) =>
-
-          parseLocalDate(b.date)
-          -
+          parseLocalDate(b.date) -
           parseLocalDate(a.date)
       );
 
 
-  upcomingList.innerHTML =
-    "";
+  upcomingList.innerHTML = "";
+  pastList.innerHTML = "";
 
 
-  pastList.innerHTML =
-    "";
+  upcoming.forEach(performance => {
+
+    upcomingList.appendChild(
+      createPerformanceElement(performance)
+    );
+
+  });
 
 
-  upcoming.forEach(
-    performance => {
+  past.forEach(performance => {
 
-      upcomingList.appendChild(
-        createPerformanceElement(
-          performance
-        )
-      );
+    pastList.appendChild(
+      createPerformanceElement(performance)
+    );
 
-    }
-  );
-
-
-  past.forEach(
-    performance => {
-
-      pastList.appendChild(
-        createPerformanceElement(
-          performance
-        )
-      );
-
-    }
-  );
-
+  });
 }
 
 
 
 /* ========================================
-   AUTOMATIC GALLERY
+   GALLERY CAPTIONS
 ======================================== */
 
-const GALLERY_MAX_IMAGES =
-  50;
+const galleryCaptions = {
+
+  1: "London · 2026",
+
+  2: "Da Nang · 2026",
+
+  3: "Ho Chi Minh City · 2026",
+
+  4: "Hong Kong · 2026",
+
+  5: "California · 2025",
+
+  6: "Illinois · 2024",
+
+  7: "Ho Chi Minh City · 2026",
+
+  8: "Da Nang · 2026",
+
+  9: "Illinois · 2026",
+
+  10: "Hong Kong · 2026",
+
+  11: "California · 2025",
+
+  12: "Da Nang · 2026"
+
+};
 
 
-const GALLERY_INITIAL_VISIBLE =
-  6;
+
+/* ========================================
+   AUTOMATIC GALLERY
+
+   gallery-01.jpg
+   gallery-02.jpg
+   gallery-03.jpg
+   ...
+
+   실제로 있는 사진만 표시됨.
+======================================== */
+
+const GALLERY_MAX_IMAGES = 50;
+
+const GALLERY_INITIAL_VISIBLE = 6;
 
 
 
@@ -453,62 +423,50 @@ function galleryFileName(number) {
 
   const padded =
     String(number)
-      .padStart(
-        2,
-        "0"
-      );
+      .padStart(2, "0");
 
 
   return `gallery-${padded}.jpg`;
-
 }
 
 
 
 /* ========================================
-   CHECK IF IMAGE EXISTS
+   CHECK IMAGE
 ======================================== */
 
 function checkGalleryImage(number) {
 
-  return new Promise(
-    resolve => {
+  return new Promise(resolve => {
 
-      const src =
-        galleryFileName(
-          number
-        );
+    const src =
+      galleryFileName(number);
 
 
-      const testImage =
-        new Image();
+    const testImage =
+      new Image();
 
 
-      testImage.onload =
-        () => {
+    testImage.onload = () => {
 
-          resolve({
-            number,
-            src
-          });
+      resolve({
+        number,
+        src
+      });
 
-        };
-
-
-      testImage.onerror =
-        () => {
-
-          resolve(null);
-
-        };
+    };
 
 
-      testImage.src =
-        src;
+    testImage.onerror = () => {
 
-    }
-  );
+      resolve(null);
 
+    };
+
+
+    testImage.src = src;
+
+  });
 }
 
 
@@ -523,14 +481,16 @@ function createGalleryItem(
 ) {
 
   const item =
-    document.createElement(
-      "div"
-    );
+    document.createElement("div");
 
 
   item.className =
     "gallery-item";
 
+
+  /*
+    첫 6장 이후는 숨겨놓음.
+  */
 
   if (
     index >=
@@ -544,10 +504,19 @@ function createGalleryItem(
   }
 
 
+
+  /* IMAGE FRAME */
+
+  const imageFrame =
+    document.createElement("div");
+
+
+  imageFrame.className =
+    "gallery-image-frame";
+
+
   const image =
-    document.createElement(
-      "img"
-    );
+    document.createElement("img");
 
 
   image.src =
@@ -562,13 +531,45 @@ function createGalleryItem(
     "lazy";
 
 
-  item.appendChild(
-    image
-  );
+  imageFrame.appendChild(image);
+
+  item.appendChild(imageFrame);
+
+
+
+  /* CAPTION */
+
+  const captionText =
+    galleryCaptions[
+      imageData.number
+    ];
+
+
+  /*
+    캡션이 등록된 사진에만
+    캡션 표시.
+  */
+
+  if (captionText) {
+
+    const caption =
+      document.createElement("p");
+
+
+    caption.className =
+      "gallery-caption";
+
+
+    caption.textContent =
+      captionText;
+
+
+    item.appendChild(caption);
+
+  }
 
 
   return item;
-
 }
 
 
@@ -608,6 +609,10 @@ async function renderGallery() {
   }
 
 
+  /*
+    gallery-01.jpg ~ gallery-50.jpg 확인
+  */
+
   const checks = [];
 
 
@@ -618,19 +623,19 @@ async function renderGallery() {
   ) {
 
     checks.push(
-      checkGalleryImage(
-        number
-      )
+      checkGalleryImage(number)
     );
 
   }
 
 
   const results =
-    await Promise.all(
-      checks
-    );
+    await Promise.all(checks);
 
+
+  /*
+    실제 존재하는 파일만 남김.
+  */
 
   const existingImages =
     results
@@ -641,8 +646,7 @@ async function renderGallery() {
       );
 
 
-  galleryGrid.innerHTML =
-    "";
+  galleryGrid.innerHTML = "";
 
 
   existingImages.forEach(
@@ -659,22 +663,30 @@ async function renderGallery() {
   );
 
 
+  /*
+    사진이 6장 이하이면
+    MORE PHOTOS 버튼도 숨김.
+  */
+
   if (
     existingImages.length <=
     GALLERY_INITIAL_VISIBLE
   ) {
 
-    galleryMoreWrap.hidden =
-      true;
+    galleryMoreWrap.hidden = true;
 
     return;
 
   }
 
 
-  galleryMoreWrap.hidden =
-    false;
+  galleryMoreWrap.hidden = false;
 
+
+
+  /* =====================================
+     MORE PHOTOS
+  ====================================== */
 
   galleryToggle.addEventListener(
     "click",
@@ -683,9 +695,7 @@ async function renderGallery() {
       const expanded =
         galleryGrid
           .classList
-          .toggle(
-            "expanded"
-          );
+          .toggle("expanded");
 
 
       if (expanded) {
@@ -729,29 +739,24 @@ if (
 
       entries => {
 
-        entries.forEach(
-          entry => {
+        entries.forEach(entry => {
 
-            if (
-              entry.isIntersecting
-            ) {
+          if (
+            entry.isIntersecting
+          ) {
 
+            entry.target
+              .classList
+              .add("visible");
+
+
+            observer.unobserve(
               entry.target
-                .classList
-                .add(
-                  "visible"
-                );
-
-
-              observer
-                .unobserve(
-                  entry.target
-                );
-
-            }
+            );
 
           }
-        );
+
+        });
 
       },
 
@@ -765,9 +770,7 @@ if (
   revealElements.forEach(
     element => {
 
-      observer.observe(
-        element
-      );
+      observer.observe(element);
 
     }
   );
@@ -779,9 +782,9 @@ else {
   revealElements.forEach(
     element => {
 
-      element.classList.add(
-        "visible"
-      );
+      element
+        .classList
+        .add("visible");
 
     }
   );
@@ -826,7 +829,7 @@ window.addEventListener(
 
 
 /* ========================================
-   START
+   START WEBSITE
 ======================================== */
 
 renderSchedule();
