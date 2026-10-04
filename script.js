@@ -1,17 +1,10 @@
 /* ========================================
    PERFORMANCE DATABASE
-
-   새 공연이 생기면 여기에만 추가하면 됩니다.
-
-   date:
-   YYYY-MM-DD
 ======================================== */
 
 const performances = [
 
-  /* =====================================
-     2026
-  ====================================== */
+  /* 2026 */
 
   {
     date: "2026-04-11",
@@ -91,9 +84,7 @@ const performances = [
   },
 
 
-  /* =====================================
-     2027
-  ====================================== */
+  /* 2027 */
 
   {
     date: "2027-01-21",
@@ -152,9 +143,7 @@ const performances = [
   },
 
 
-  /* =====================================
-     2028
-  ====================================== */
+  /* 2028 */
 
   {
     date: "2028-01-10",
@@ -164,9 +153,7 @@ const performances = [
   },
 
 
-  /* =====================================
-     2029
-  ====================================== */
+  /* 2029 */
 
   {
     date: "2029-06-19",
@@ -180,7 +167,7 @@ const performances = [
 
 
 /* ========================================
-   DATE
+   DATE FUNCTIONS
 ======================================== */
 
 function parseLocalDate(dateString) {
@@ -189,6 +176,7 @@ function parseLocalDate(dateString) {
     dateString
       .split("-")
       .map(Number);
+
 
   return new Date(
     year,
@@ -204,6 +192,7 @@ function getToday() {
 
   const now = new Date();
 
+
   return new Date(
     now.getFullYear(),
     now.getMonth(),
@@ -218,6 +207,7 @@ function formatPerformanceDate(dateString) {
 
   const date =
     parseLocalDate(dateString);
+
 
   const months = [
     "JAN",
@@ -239,8 +229,10 @@ function formatPerformanceDate(dateString) {
     String(date.getDate())
       .padStart(2, "0");
 
+
   const month =
     months[date.getMonth()];
+
 
   const year =
     date.getFullYear();
@@ -253,7 +245,7 @@ function formatPerformanceDate(dateString) {
 
 
 /* ========================================
-   CREATE EVENT
+   PERFORMANCE ELEMENT
 ======================================== */
 
 function createPerformanceElement(performance) {
@@ -261,39 +253,29 @@ function createPerformanceElement(performance) {
   const article =
     document.createElement("article");
 
+
   article.className = "event";
 
 
   article.innerHTML = `
 
     <div class="date">
-
-      ${formatPerformanceDate(
-        performance.date
-      )}
-
+      ${formatPerformanceDate(performance.date)}
     </div>
-
 
     <div>
 
       <h3>
-
         ${performance.venue}
-
       </h3>
 
-
       <p>
-
         ${performance.location}
-
         ${
           performance.type
             ? ` · ${performance.type}`
             : ""
         }
-
       </p>
 
     </div>
@@ -308,7 +290,7 @@ function createPerformanceElement(performance) {
 
 
 /* ========================================
-   RENDER SCHEDULE
+   AUTOMATIC SCHEDULE
 ======================================== */
 
 function renderSchedule() {
@@ -334,71 +316,50 @@ function renderSchedule() {
     getToday();
 
 
-
-  /* =====================================
-     UPCOMING
-
-     공연 당일까지 Upcoming.
-     다음 날 Past로 이동.
-  ====================================== */
+  /*
+    공연 당일 = Upcoming
+    다음 날부터 = Past
+  */
 
   const upcoming =
     performances
-      .filter((performance) => {
+      .filter((performance) =>
 
-        return (
-          parseLocalDate(
-            performance.date
-          ) >= today
-        );
+        parseLocalDate(
+          performance.date
+        ) >= today
 
-      })
-      .sort((a, b) => {
+      )
+      .sort((a, b) =>
 
-        return (
-          parseLocalDate(a.date)
-          -
-          parseLocalDate(b.date)
-        );
+        parseLocalDate(a.date)
+        -
+        parseLocalDate(b.date)
 
-      });
+      );
 
-
-
-  /* =====================================
-     PAST
-
-     가장 최근 공연이 위.
-  ====================================== */
 
   const past =
     performances
-      .filter((performance) => {
+      .filter((performance) =>
 
-        return (
-          parseLocalDate(
-            performance.date
-          ) < today
-        );
+        parseLocalDate(
+          performance.date
+        ) < today
 
-      })
-      .sort((a, b) => {
+      )
+      .sort((a, b) =>
 
-        return (
-          parseLocalDate(b.date)
-          -
-          parseLocalDate(a.date)
-        );
+        parseLocalDate(b.date)
+        -
+        parseLocalDate(a.date)
 
-      });
+      );
 
-
-
-  /* =====================================
-     DISPLAY UPCOMING
-  ====================================== */
 
   upcomingList.innerHTML = "";
+
+  pastList.innerHTML = "";
 
 
   upcoming.forEach(
@@ -414,14 +375,6 @@ function renderSchedule() {
   );
 
 
-
-  /* =====================================
-     DISPLAY PAST
-  ====================================== */
-
-  pastList.innerHTML = "";
-
-
   past.forEach(
     (performance) => {
 
@@ -430,6 +383,282 @@ function renderSchedule() {
           performance
         )
       );
+
+    }
+  );
+
+}
+
+
+
+/* ========================================
+   AUTOMATIC GALLERY
+
+   파일 이름:
+
+   gallery-01.jpg
+   gallery-02.jpg
+   gallery-03.jpg
+   ...
+
+   실제로 존재하는 파일만 표시됩니다.
+======================================== */
+
+const GALLERY_MAX_IMAGES = 40;
+const GALLERY_INITIAL_VISIBLE = 6;
+
+
+function galleryFileName(number) {
+
+  const paddedNumber =
+    String(number)
+      .padStart(2, "0");
+
+
+  return `gallery-${paddedNumber}.jpg`;
+
+}
+
+
+
+/*
+  사진이 실제로 존재하는지 확인.
+
+  없는 파일은 화면에 추가하지 않습니다.
+*/
+
+function checkGalleryImage(number) {
+
+  return new Promise((resolve) => {
+
+    const src =
+      galleryFileName(number);
+
+
+    const testImage =
+      new Image();
+
+
+    testImage.onload = () => {
+
+      resolve({
+        number,
+        src
+      });
+
+    };
+
+
+    testImage.onerror = () => {
+
+      resolve(null);
+
+    };
+
+
+    testImage.src = src;
+
+  });
+
+}
+
+
+
+/* ========================================
+   GALLERY ITEM
+======================================== */
+
+function createGalleryItem(
+  imageData,
+  index
+) {
+
+  const item =
+    document.createElement("div");
+
+
+  item.className = "gallery-item";
+
+
+  if (
+    index >=
+    GALLERY_INITIAL_VISIBLE
+  ) {
+
+    item.classList.add(
+      "gallery-extra"
+    );
+
+  }
+
+
+  const image =
+    document.createElement("img");
+
+
+  image.src =
+    imageData.src;
+
+
+  image.alt =
+    "Eli Sunghyun Kim";
+
+
+  image.loading =
+    "lazy";
+
+
+  item.appendChild(image);
+
+
+  return item;
+
+}
+
+
+
+/* ========================================
+   RENDER GALLERY
+======================================== */
+
+async function renderGallery() {
+
+  const galleryGrid =
+    document.querySelector(
+      "#gallery-grid"
+    );
+
+
+  const galleryToggle =
+    document.querySelector(
+      "#gallery-toggle"
+    );
+
+
+  const galleryMoreWrap =
+    document.querySelector(
+      "#gallery-more-wrap"
+    );
+
+
+  if (
+    !galleryGrid ||
+    !galleryToggle ||
+    !galleryMoreWrap
+  ) {
+
+    return;
+
+  }
+
+
+  /*
+    gallery-01.jpg ~ gallery-40.jpg
+    존재 여부 검사
+  */
+
+  const imageChecks = [];
+
+
+  for (
+    let i = 1;
+    i <= GALLERY_MAX_IMAGES;
+    i++
+  ) {
+
+    imageChecks.push(
+      checkGalleryImage(i)
+    );
+
+  }
+
+
+  const results =
+    await Promise.all(
+      imageChecks
+    );
+
+
+  /*
+    존재하는 사진만 남김.
+    번호 순서는 자동 유지.
+  */
+
+  const existingImages =
+    results.filter(Boolean);
+
+
+  galleryGrid.innerHTML = "";
+
+
+  existingImages.forEach(
+    (imageData, index) => {
+
+      galleryGrid.appendChild(
+        createGalleryItem(
+          imageData,
+          index
+        )
+      );
+
+    }
+  );
+
+
+  /*
+    사진이 6장 이하라면
+    MORE PHOTOS 버튼 자체를 숨김.
+  */
+
+  if (
+    existingImages.length <=
+    GALLERY_INITIAL_VISIBLE
+  ) {
+
+    galleryMoreWrap.hidden = true;
+
+    return;
+
+  }
+
+
+  galleryMoreWrap.hidden = false;
+
+
+
+  /* =====================================
+     MORE PHOTOS BUTTON
+  ====================================== */
+
+  galleryToggle.addEventListener(
+    "click",
+    () => {
+
+      const expanded =
+        galleryGrid
+          .classList
+          .toggle("expanded");
+
+
+      if (expanded) {
+
+        galleryToggle.innerHTML =
+          `SHOW LESS <span>↑</span>`;
+
+      } else {
+
+        galleryToggle.innerHTML =
+          `MORE PHOTOS <span>↓</span>`;
+
+
+        document
+          .querySelector("#gallery")
+          ?.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+      }
 
     }
   );
@@ -543,64 +772,11 @@ window.addEventListener(
 
 
 /* ========================================
-   START
+   START WEBSITE
 ======================================== */
 
 renderSchedule();
 
+renderGallery();
+
 updateHeader();
-/* ========================================
-   GALLERY — MORE PHOTOS
-======================================== */
-
-const galleryGrid =
-  document.querySelector(
-    "#gallery-grid"
-  );
-
-
-const galleryToggle =
-  document.querySelector(
-    "#gallery-toggle"
-  );
-
-
-if (
-  galleryGrid &&
-  galleryToggle
-) {
-
-  galleryToggle.addEventListener(
-    "click",
-    () => {
-
-      const isExpanded =
-        galleryGrid
-          .classList
-          .toggle("expanded");
-
-
-      if (isExpanded) {
-
-        galleryToggle.innerHTML =
-          `SHOW LESS <span>↑</span>`;
-
-      } else {
-
-        galleryToggle.innerHTML =
-          `MORE PHOTOS <span>↓</span>`;
-
-
-        document
-          .querySelector("#gallery")
-          .scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-
-      }
-
-    }
-  );
-
-}
