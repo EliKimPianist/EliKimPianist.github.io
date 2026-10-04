@@ -4,10 +4,13 @@
 
 const performances = [
 
-  /* 2026 */
+  /* =====================================
+     2026 — PAST
+  ====================================== */
 
   {
     date: "2026-04-11",
+    time: "3:30 PM",
     venue: "Smith Memorial Recital Hall",
     location: "Illinois, USA",
     type: "Doctoral Solo Recital"
@@ -15,6 +18,7 @@ const performances = [
 
   {
     date: "2026-04-28",
+    time: "7:30 PM",
     venue: "Smith Memorial Recital Hall",
     location: "Illinois, USA",
     type: "Doctoral Solo Recital"
@@ -22,6 +26,7 @@ const performances = [
 
   {
     date: "2026-08-13",
+    time: "7:00 PM",
     venue: "S Talent Academy",
     location: "Da Nang, Vietnam",
     type: "Piano Duo Recital"
@@ -29,6 +34,7 @@ const performances = [
 
   {
     date: "2026-08-16",
+    time: "6:30 PM",
     venue: "Duc Tri Piano Boutique",
     location: "Ho Chi Minh City, Vietnam",
     type: "Recital"
@@ -36,6 +42,7 @@ const performances = [
 
   {
     date: "2026-08-18",
+    time: "7:30 PM",
     venue: "Harmony Bechstein Academy",
     location: "Ho Chi Minh City, Vietnam",
     type: "Recital"
@@ -43,13 +50,20 @@ const performances = [
 
   {
     date: "2026-10-01",
+    time: "1:00 PM",
     venue: "St Olave’s Hart Street",
     location: "London, UK",
     type: "Lunchtime Recital"
   },
 
+
+  /* =====================================
+     2026 — UPCOMING
+  ====================================== */
+
   {
     date: "2026-10-15",
+    time: "1:15 PM",
     venue: "St John’s College, University of Cambridge",
     location: "Cambridge, UK",
     type: "Lunchtime Recital"
@@ -57,6 +71,7 @@ const performances = [
 
   {
     date: "2026-10-21",
+    time: "1:15 PM",
     venue: "St Dunstan in the West",
     location: "London, UK",
     type: "Lunchtime Recital"
@@ -64,16 +79,20 @@ const performances = [
 
   {
     date: "2026-10-30",
+    time: "1:00 PM",
     venue: "Cross Street Unitarian Chapel",
     location: "Manchester, UK",
     type: "Lunchtime Recital"
   },
 
 
-  /* 2027 */
+  /* =====================================
+     2027
+  ====================================== */
 
   {
     date: "2027-01-21",
+    time: "1:05 PM",
     venue: "St Mary-le-Bow Church",
     location: "London, UK",
     type: "Lunchtime Recital"
@@ -81,6 +100,7 @@ const performances = [
 
   {
     date: "2027-02-15",
+    time: "1:10 PM",
     venue: "Pusey House",
     location: "Oxford, UK",
     type: "Lunchtime Recital"
@@ -88,6 +108,7 @@ const performances = [
 
   {
     date: "2027-06-16",
+    time: "1:00 PM",
     venue: "St Patrick’s Cathedral",
     location: "Dublin, Ireland",
     type: "Lunchtime Recital"
@@ -95,6 +116,7 @@ const performances = [
 
   {
     date: "2027-06-17",
+    time: "12:45 PM",
     venue: "St Ann’s Church",
     location: "Dublin, Ireland",
     type: "Lunchtime Recital"
@@ -102,6 +124,7 @@ const performances = [
 
   {
     date: "2027-06-22",
+    time: "1:00 PM",
     venue: "St James’s Sussex Gardens",
     location: "London, UK",
     type: "Lunchtime Recital"
@@ -109,6 +132,7 @@ const performances = [
 
   {
     date: "2027-06-25",
+    time: "7:00 PM",
     venue: "Christ Church East Sheen",
     location: "London, UK",
     type: "Recital"
@@ -116,6 +140,7 @@ const performances = [
 
   {
     date: "2027-07-12",
+    time: "1:10 PM",
     venue: "St Stephen’s",
     location: "Bristol, UK",
     type: "Lunchtime Recital"
@@ -123,26 +148,33 @@ const performances = [
 
   {
     date: "2027-11-06",
+    time: "1:05 PM",
     venue: "St Alfege Greenwich",
     location: "London, UK",
     type: "Lunchtime Recital"
   },
 
 
-  /* 2028 */
+  /* =====================================
+     2028
+  ====================================== */
 
   {
     date: "2028-01-10",
+    time: "1:10 PM",
     venue: "All Saints’ High Wycombe",
     location: "Buckinghamshire, UK",
     type: "Lunchtime Recital"
   },
 
 
-  /* 2029 */
+  /* =====================================
+     2029
+  ====================================== */
 
   {
     date: "2029-06-19",
+    time: "1:00 PM",
     venue: "Romsey Abbey",
     location: "Hampshire, UK",
     type: "Lunchtime Recital"
@@ -255,12 +287,16 @@ function createPerformanceElement(
     "event";
 
 
+  const dateAndTime =
+    performance.time
+      ? `${formatPerformanceDate(performance.date)} · ${performance.time}`
+      : formatPerformanceDate(performance.date);
+
+
   article.innerHTML = `
 
     <div class="date">
-      ${formatPerformanceDate(
-        performance.date
-      )}
+      ${dateAndTime}
     </div>
 
     <div>
@@ -337,15 +373,9 @@ function renderSchedule() {
       .sort(
         (a, b) =>
 
-          parseLocalDate(
-            a.date
-          )
-
+          parseLocalDate(a.date)
           -
-
-          parseLocalDate(
-            b.date
-          )
+          parseLocalDate(b.date)
       );
 
 
@@ -363,15 +393,9 @@ function renderSchedule() {
       .sort(
         (a, b) =>
 
-          parseLocalDate(
-            b.date
-          )
-
+          parseLocalDate(b.date)
           -
-
-          parseLocalDate(
-            a.date
-          )
+          parseLocalDate(a.date)
       );
 
 
@@ -643,7 +667,6 @@ async function renderGallery() {
     galleryMoreWrap.hidden =
       true;
 
-
     return;
 
   }
@@ -652,11 +675,6 @@ async function renderGallery() {
   galleryMoreWrap.hidden =
     false;
 
-
-
-  /* =====================================
-     MORE PHOTOS / SHOW LESS
-  ====================================== */
 
   galleryToggle.addEventListener(
     "click",
