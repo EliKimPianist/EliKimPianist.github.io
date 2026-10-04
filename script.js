@@ -190,7 +190,8 @@ function parseLocalDate(dateString) {
 
 function getToday() {
 
-  const now = new Date();
+  const now =
+    new Date();
 
 
   return new Date(
@@ -226,12 +227,18 @@ function formatPerformanceDate(dateString) {
 
 
   const day =
-    String(date.getDate())
-      .padStart(2, "0");
+    String(
+      date.getDate()
+    ).padStart(
+      2,
+      "0"
+    );
 
 
   const month =
-    months[date.getMonth()];
+    months[
+      date.getMonth()
+    ];
 
 
   const year =
@@ -248,19 +255,26 @@ function formatPerformanceDate(dateString) {
    PERFORMANCE ELEMENT
 ======================================== */
 
-function createPerformanceElement(performance) {
+function createPerformanceElement(
+  performance
+) {
 
   const article =
-    document.createElement("article");
+    document.createElement(
+      "article"
+    );
 
 
-  article.className = "event";
+  article.className =
+    "event";
 
 
   article.innerHTML = `
 
     <div class="date">
-      ${formatPerformanceDate(performance.date)}
+      ${formatPerformanceDate(
+        performance.date
+      )}
     </div>
 
     <div>
@@ -271,11 +285,8 @@ function createPerformanceElement(performance) {
 
       <p>
         ${performance.location}
-        ${
-          performance.type
-            ? ` · ${performance.type}`
-            : ""
-        }
+        ·
+        ${performance.type}
       </p>
 
     </div>
@@ -307,8 +318,18 @@ function renderSchedule() {
     );
 
 
-  if (!upcomingList || !pastList) {
+  /*
+    Schedule가 없는 페이지에서는
+    아무것도 하지 않음
+  */
+
+  if (
+    !upcomingList ||
+    !pastList
+  ) {
+
     return;
+
   }
 
 
@@ -318,52 +339,72 @@ function renderSchedule() {
 
   /*
     공연 당일 = Upcoming
-    다음 날부터 = Past
+
+    그 다음 날부터 = Past
   */
 
   const upcoming =
     performances
-      .filter((performance) =>
 
-        parseLocalDate(
-          performance.date
-        ) >= today
+      .filter(
+        performance =>
 
+          parseLocalDate(
+            performance.date
+          ) >= today
       )
-      .sort((a, b) =>
 
-        parseLocalDate(a.date)
-        -
-        parseLocalDate(b.date)
+      .sort(
+        (a, b) =>
 
+          parseLocalDate(
+            a.date
+          )
+
+          -
+
+          parseLocalDate(
+            b.date
+          )
       );
 
 
   const past =
     performances
-      .filter((performance) =>
 
-        parseLocalDate(
-          performance.date
-        ) < today
+      .filter(
+        performance =>
 
+          parseLocalDate(
+            performance.date
+          ) < today
       )
-      .sort((a, b) =>
 
-        parseLocalDate(b.date)
-        -
-        parseLocalDate(a.date)
+      .sort(
+        (a, b) =>
 
+          parseLocalDate(
+            b.date
+          )
+
+          -
+
+          parseLocalDate(
+            a.date
+          )
       );
 
 
-  upcomingList.innerHTML = "";
+  upcomingList.innerHTML =
+    "";
 
-  pastList.innerHTML = "";
+
+  pastList.innerHTML =
+    "";
 
 
   upcoming.forEach(
-    (performance) => {
+    performance => {
 
       upcomingList.appendChild(
         createPerformanceElement(
@@ -376,7 +417,7 @@ function renderSchedule() {
 
 
   past.forEach(
-    (performance) => {
+    performance => {
 
       pastList.appendChild(
         createPerformanceElement(
@@ -401,71 +442,84 @@ function renderSchedule() {
    gallery-03.jpg
    ...
 
-   실제로 존재하는 파일만 표시됩니다.
+   실제 존재하는 파일만 화면에 표시.
 ======================================== */
 
-const GALLERY_MAX_IMAGES = 40;
-const GALLERY_INITIAL_VISIBLE = 6;
+const GALLERY_MAX_IMAGES =
+  50;
+
+
+const GALLERY_INITIAL_VISIBLE =
+  6;
+
 
 
 function galleryFileName(number) {
 
-  const paddedNumber =
+  const padded =
     String(number)
-      .padStart(2, "0");
+      .padStart(
+        2,
+        "0"
+      );
 
 
-  return `gallery-${paddedNumber}.jpg`;
-
-}
-
-
-
-/*
-  사진이 실제로 존재하는지 확인.
-
-  없는 파일은 화면에 추가하지 않습니다.
-*/
-
-function checkGalleryImage(number) {
-
-  return new Promise((resolve) => {
-
-    const src =
-      galleryFileName(number);
-
-
-    const testImage =
-      new Image();
-
-
-    testImage.onload = () => {
-
-      resolve({
-        number,
-        src
-      });
-
-    };
-
-
-    testImage.onerror = () => {
-
-      resolve(null);
-
-    };
-
-
-    testImage.src = src;
-
-  });
+  return `gallery-${padded}.jpg`;
 
 }
 
 
 
 /* ========================================
-   GALLERY ITEM
+   CHECK IF IMAGE EXISTS
+======================================== */
+
+function checkGalleryImage(number) {
+
+  return new Promise(
+    resolve => {
+
+      const src =
+        galleryFileName(
+          number
+        );
+
+
+      const testImage =
+        new Image();
+
+
+      testImage.onload =
+        () => {
+
+          resolve({
+            number,
+            src
+          });
+
+        };
+
+
+      testImage.onerror =
+        () => {
+
+          resolve(null);
+
+        };
+
+
+      testImage.src =
+        src;
+
+    }
+  );
+
+}
+
+
+
+/* ========================================
+   CREATE GALLERY ITEM
 ======================================== */
 
 function createGalleryItem(
@@ -474,11 +528,19 @@ function createGalleryItem(
 ) {
 
   const item =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
 
-  item.className = "gallery-item";
+  item.className =
+    "gallery-item";
 
+
+  /*
+    첫 6장 이후 사진들은
+    MORE PHOTOS를 눌러야 표시
+  */
 
   if (
     index >=
@@ -493,7 +555,9 @@ function createGalleryItem(
 
 
   const image =
-    document.createElement("img");
+    document.createElement(
+      "img"
+    );
 
 
   image.src =
@@ -501,14 +565,16 @@ function createGalleryItem(
 
 
   image.alt =
-    "Eli Sunghyun Kim";
+    "Eli Sunghyun Kim performance";
 
 
   image.loading =
     "lazy";
 
 
-  item.appendChild(image);
+  item.appendChild(
+    image
+  );
 
 
   return item;
@@ -541,6 +607,11 @@ async function renderGallery() {
     );
 
 
+  /*
+    Gallery가 없는 페이지에서는
+    아무것도 하지 않음
+  */
+
   if (
     !galleryGrid ||
     !galleryToggle ||
@@ -553,21 +624,23 @@ async function renderGallery() {
 
 
   /*
-    gallery-01.jpg ~ gallery-40.jpg
-    존재 여부 검사
+    gallery-01.jpg ~ gallery-50.jpg
+    존재 여부 자동 확인
   */
 
-  const imageChecks = [];
+  const checks = [];
 
 
   for (
-    let i = 1;
-    i <= GALLERY_MAX_IMAGES;
-    i++
+    let number = 1;
+    number <= GALLERY_MAX_IMAGES;
+    number++
   ) {
 
-    imageChecks.push(
-      checkGalleryImage(i)
+    checks.push(
+      checkGalleryImage(
+        number
+      )
     );
 
   }
@@ -575,20 +648,25 @@ async function renderGallery() {
 
   const results =
     await Promise.all(
-      imageChecks
+      checks
     );
 
 
   /*
-    존재하는 사진만 남김.
-    번호 순서는 자동 유지.
+    실제 존재하는 사진만 남김
   */
 
   const existingImages =
-    results.filter(Boolean);
+    results
+      .filter(Boolean)
+      .sort(
+        (a, b) =>
+          a.number - b.number
+      );
 
 
-  galleryGrid.innerHTML = "";
+  galleryGrid.innerHTML =
+    "";
 
 
   existingImages.forEach(
@@ -606,8 +684,8 @@ async function renderGallery() {
 
 
   /*
-    사진이 6장 이하라면
-    MORE PHOTOS 버튼 자체를 숨김.
+    사진이 6장 이하이면
+    MORE PHOTOS 버튼도 필요 없음
   */
 
   if (
@@ -615,19 +693,22 @@ async function renderGallery() {
     GALLERY_INITIAL_VISIBLE
   ) {
 
-    galleryMoreWrap.hidden = true;
+    galleryMoreWrap.hidden =
+      true;
+
 
     return;
 
   }
 
 
-  galleryMoreWrap.hidden = false;
+  galleryMoreWrap.hidden =
+    false;
 
 
 
   /* =====================================
-     MORE PHOTOS BUTTON
+     MORE PHOTOS / SHOW LESS
   ====================================== */
 
   galleryToggle.addEventListener(
@@ -637,26 +718,25 @@ async function renderGallery() {
       const expanded =
         galleryGrid
           .classList
-          .toggle("expanded");
+          .toggle(
+            "expanded"
+          );
 
 
       if (expanded) {
 
         galleryToggle.innerHTML =
-          `SHOW LESS <span>↑</span>`;
+          `MORE PHOTOS <span>↑</span>`;
 
-      } else {
+        galleryToggle.firstChild.textContent =
+          "SHOW LESS ";
+
+      }
+
+      else {
 
         galleryToggle.innerHTML =
           `MORE PHOTOS <span>↓</span>`;
-
-
-        document
-          .querySelector("#gallery")
-          ?.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
 
       }
 
@@ -668,7 +748,11 @@ async function renderGallery() {
 
 
 /* ========================================
-   SCROLL REVEAL
+   HOME SCROLL REVEAL
+
+   메뉴 이동에는 사용되지 않음.
+   HOME에서 아래로 직접 스크롤할 때
+   섹션이 살짝 나타나는 효과만 담당.
 ======================================== */
 
 const revealElements =
@@ -677,50 +761,74 @@ const revealElements =
   );
 
 
-const observer =
-  new IntersectionObserver(
+if (
+  "IntersectionObserver"
+  in window
+) {
 
-    (entries) => {
+  const observer =
+    new IntersectionObserver(
 
-      entries.forEach(
-        (entry) => {
+      entries => {
 
-          if (
-            entry.isIntersecting
-          ) {
+        entries.forEach(
+          entry => {
 
-            entry.target
-              .classList
-              .add("visible");
+            if (
+              entry.isIntersecting
+            ) {
 
-
-            observer.unobserve(
               entry.target
-            );
+                .classList
+                .add(
+                  "visible"
+                );
+
+
+              observer
+                .unobserve(
+                  entry.target
+                );
+
+            }
 
           }
+        );
 
-        }
-      );
+      },
 
-    },
+      {
+        threshold: 0.1
+      }
 
-    {
-      threshold: 0.1
-    }
-
-  );
-
-
-revealElements.forEach(
-  (element) => {
-
-    observer.observe(
-      element
     );
 
-  }
-);
+
+  revealElements.forEach(
+    element => {
+
+      observer.observe(
+        element
+      );
+
+    }
+  );
+
+}
+
+else {
+
+  revealElements.forEach(
+    element => {
+
+      element.classList.add(
+        "visible"
+      );
+
+    }
+  );
+
+}
 
 
 
@@ -741,24 +849,12 @@ function updateHeader() {
   }
 
 
-  if (
+  header.classList.toggle(
+    "scrolled",
     window.scrollY > 30
-  ) {
-
-    header
-      .classList
-      .add("scrolled");
-
-  } else {
-
-    header
-      .classList
-      .remove("scrolled");
-
-  }
+  );
 
 }
-
 
 
 window.addEventListener(
@@ -772,7 +868,7 @@ window.addEventListener(
 
 
 /* ========================================
-   START WEBSITE
+   START
 ======================================== */
 
 renderSchedule();
