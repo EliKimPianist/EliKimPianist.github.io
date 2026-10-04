@@ -789,23 +789,21 @@ h3 {
 .gallery-grid {
   display: grid;
 
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns:
+    repeat(3, 1fr);
 
-  gap: 18px;
-
-  align-items: stretch;
+  gap: 16px;
 }
 
 
 .gallery-item {
+  position: relative;
+
   overflow: hidden;
 
-  min-height: 560px;
-}
+  aspect-ratio: 4 / 5;
 
-
-.gallery-large {
-  min-height: 720px;
+  background: #e9e5de;
 }
 
 
@@ -813,18 +811,157 @@ h3 {
   display: block;
 
   width: 100%;
-
   height: 100%;
 
   object-fit: cover;
 
   transition:
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    transform 0.9s
+    cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 
 .gallery-item:hover img {
-  transform: scale(1.018);
+  transform: scale(1.025);
+}
+
+
+/* hidden photographs */
+
+.gallery-extra {
+  display: none;
+}
+
+
+/* when gallery is opened */
+
+.gallery-grid.expanded
+.gallery-extra {
+  display: block;
+
+  animation:
+    galleryReveal 0.65s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+
+@keyframes galleryReveal {
+
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* MORE PHOTOS */
+
+.gallery-more-wrap {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 42px;
+}
+
+
+.gallery-toggle {
+  appearance: none;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding:
+    10px
+    0
+    7px;
+
+  border: 0;
+
+  border-bottom:
+    1px solid #4b4641;
+
+  background: transparent;
+
+  color: #302c28;
+
+  font-family:
+    "Quicksand",
+    sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.18em;
+
+  cursor: pointer;
+
+  transition:
+    gap 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+.gallery-toggle:hover {
+  gap: 21px;
+
+  opacity: 0.6;
+}
+
+
+.gallery-toggle span {
+  font-size: 13px;
+}
+
+
+/* ========================================
+   GALLERY TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+  .gallery-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* ========================================
+   GALLERY MOBILE
+======================================== */
+
+@media (max-width: 560px) {
+
+  .gallery-grid {
+    grid-template-columns:
+      1fr;
+
+    gap: 12px;
+  }
+
+
+  .gallery-item {
+    aspect-ratio: 4 / 5;
+  }
+
+
+  .gallery-more-wrap {
+    margin-top: 32px;
+  }
+
 }
 
 
