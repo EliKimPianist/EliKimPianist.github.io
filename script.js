@@ -1,7 +1,6 @@
 const revealElements = document.querySelectorAll(".reveal");
 const header = document.querySelector(".site-header");
-const heroImage = document.querySelector(".hero-image");
-const heroOverlay = document.querySelector(".hero-overlay");
+const heroPhoto = document.querySelector(".hero-photo");
 
 
 /* =========================
@@ -22,27 +21,20 @@ const observer = new IntersectionObserver(
   }
 );
 
-
 revealElements.forEach((element) => {
   observer.observe(element);
 });
 
 
 /* =========================
-   PARALLAX HERO
+   HERO PARALLAX
 ========================= */
 
 let ticking = false;
 
-
 function updateScrollEffects() {
-
   const scrollY = window.scrollY;
-
   const isMobile = window.innerWidth <= 760;
-
-
-  /* Header becomes slightly smaller */
 
   if (scrollY > 30) {
     header.classList.add("scrolled");
@@ -50,76 +42,33 @@ function updateScrollEffects() {
     header.classList.remove("scrolled");
   }
 
-
-  /*
-    Desktop only:
-    image moves more slowly than page,
-    text drifts upward slightly faster.
-  */
-
   if (!isMobile) {
+    const heroMove = Math.min(scrollY * 0.30, 220);
+    const heroScale = 1 + Math.min(scrollY * 0.00018, 0.045);
 
-    const imageMove = Math.min(scrollY * 0.12, 70);
-
-    const textMove = Math.min(scrollY * 0.18, 95);
-
-    const textFade = Math.max(
-      0,
-      1 - scrollY / 650
-    );
-
-
-    heroImage.style.transform =
-      `translate3d(0, ${imageMove}px, 0) scale(1.015)`;
-
-
-    heroOverlay.style.transform =
-      `translate3d(0, -${textMove}px, 0)`;
-
-
-    heroOverlay.style.opacity =
-      textFade;
-
+    heroPhoto.style.transform =
+      `translate3d(0, -${heroMove}px, 0) scale(${heroScale})`;
   } else {
+    const heroMove = Math.min(scrollY * 0.16, 85);
 
-    heroImage.style.transform = "none";
-
-    heroOverlay.style.transform = "none";
-
-    heroOverlay.style.opacity = "1";
-
+    heroPhoto.style.transform =
+      `translate3d(0, -${heroMove}px, 0)`;
   }
-
 
   ticking = false;
 }
 
-
 window.addEventListener(
   "scroll",
   () => {
-
     if (!ticking) {
-
-      window.requestAnimationFrame(
-        updateScrollEffects
-      );
-
+      window.requestAnimationFrame(updateScrollEffects);
       ticking = true;
-
     }
-
   },
-  {
-    passive: true
-  }
+  { passive: true }
 );
 
-
-window.addEventListener(
-  "resize",
-  updateScrollEffects
-);
-
+window.addEventListener("resize", updateScrollEffects);
 
 updateScrollEffects();
