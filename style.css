@@ -117,7 +117,7 @@ img {
 
 
 /* ========================================
-   NAV
+   NAVIGATION
 ======================================== */
 
 .nav {
@@ -131,8 +131,6 @@ img {
 
 .nav a {
   position: relative;
-
-  font-family: "Quicksand", sans-serif;
 
   font-size: 10px;
 
@@ -218,12 +216,11 @@ img {
   object-fit: cover;
 
   /*
-    IMPORTANT:
-    higher second percentage = image appears lower,
-    so less ceiling is visible
+    인물과 드레스가 먼저 보이게.
+    천장 부분을 줄여주는 위치.
   */
 
-  object-position: 47% 66%;
+  object-position: 47% 70%;
 
   transition:
     transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
@@ -245,16 +242,16 @@ img {
   align-items: flex-start;
 
   padding:
-    38px
-    clamp(48px, 6vw, 100px)
-    65px;
+    34px
+    clamp(46px, 5.5vw, 92px)
+    60px;
 }
 
 
 .hero-inner {
   width: 100%;
 
-  max-width: 650px;
+  max-width: 670px;
 }
 
 
@@ -263,7 +260,7 @@ img {
 ======================================== */
 
 .hero-role {
-  margin: 0 0 17px;
+  margin: 0 0 15px;
 
   font-size: 10px;
 
@@ -282,13 +279,13 @@ img {
 ======================================== */
 
 .hero h1 {
-  max-width: 590px;
+  max-width: 620px;
 
-  margin: 0 0 39px;
+  margin: 0 0 36px;
 
   font-family: "Quicksand", sans-serif;
 
-  font-size: clamp(42px, 4.25vw, 70px);
+  font-size: clamp(41px, 4.1vw, 68px);
 
   font-weight: 300;
 
@@ -303,11 +300,11 @@ img {
 
 
 /* ========================================
-   DEGREE
+   HERO DEGREE
 ======================================== */
 
 .hero-degree {
-  margin-bottom: 36px;
+  margin-bottom: 33px;
 }
 
 
@@ -327,7 +324,7 @@ img {
 ======================================== */
 
 .hero-section {
-  margin-bottom: 31px;
+  margin-bottom: 29px;
 }
 
 
@@ -348,19 +345,19 @@ img {
 
 
 /* ========================================
-   KEYWORDS
+   RESEARCH FOCUS
 ======================================== */
 
 .hero-keywords {
-  max-width: 580px;
+  max-width: 590px;
 
   margin: 0;
 
-  font-size: clamp(12px, 1.2vw, 16px);
+  font-size: clamp(11px, 1.12vw, 15px);
 
   font-weight: 400;
 
-  line-height: 1.7;
+  line-height: 1.9;
 
   letter-spacing: 0.055em;
 
@@ -371,22 +368,22 @@ img {
 
 
 /* ========================================
-   DISSERTATION
+   HERO DISSERTATION
 ======================================== */
 
 .hero-dissertation {
-  margin-bottom: 38px;
+  margin-bottom: 35px;
 }
 
 
 .dissertation-title {
-  max-width: 530px;
+  max-width: 540px;
 
   margin: 0;
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: clamp(21px, 1.9vw, 29px);
+  font-size: clamp(21px, 1.85vw, 29px);
 
   line-height: 1.29;
 
@@ -395,7 +392,7 @@ img {
 
 
 /* ========================================
-   LOCATION
+   HERO LOCATIONS
 ======================================== */
 
 .hero-locations {
@@ -491,37 +488,47 @@ h3 {
 .about-layout {
   display: grid;
 
-  grid-template-columns: 0.7fr 1.3fr;
+  grid-template-columns: 0.68fr 1.32fr;
 
-  gap: 90px;
+  gap: 95px;
 
   align-items: start;
 }
 
 
-.about-list {
-  list-style: none;
-
-  margin: 0;
-
-  padding: 0;
-
-  border-top: 1px solid #37332f;
+.about-content {
+  border-top: 1px solid #38342f;
 }
 
 
-.about-list li {
-  position: relative;
-
-  padding:
-    20px
-    0
-    20px
-    25px;
+.about-block {
+  padding: 28px 0;
 
   border-bottom: 1px solid #ded9cf;
+}
 
-  font-size: 15px;
+
+.about-category {
+  margin: 0 0 13px;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.21em;
+
+  text-transform: uppercase;
+
+  color: #8b8178;
+}
+
+
+/* EDUCATION */
+
+.about-lines p {
+  margin: 4px 0;
+
+  font-size: 14px;
 
   line-height: 1.65;
 
@@ -529,18 +536,54 @@ h3 {
 }
 
 
-.about-list li::before {
-  content: "•";
+/* PROFESSIONAL EXPERIENCE */
 
-  position: absolute;
+.about-highlight {
+  max-width: 720px;
 
-  left: 2px;
+  margin: 0;
 
-  top: 19px;
+  font-size: 15px;
 
-  color: #817970;
+  line-height: 1.75;
+
+  color: #393530;
 }
 
+
+/* DMA RESEARCH */
+
+.about-research-title {
+  max-width: 650px;
+
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 25px;
+
+  line-height: 1.35;
+
+  color: #3f3934;
+}
+
+
+/* ABOUT LOCATION */
+
+.about-location {
+  margin: 29px 0 0;
+
+  font-size: 9px;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+
+  color: #958a81;
+}
+
+
+/* BIO LINK */
 
 .bio-link {
   display: inline-flex;
@@ -549,7 +592,7 @@ h3 {
 
   gap: 15px;
 
-  margin-top: 34px;
+  margin-top: 29px;
 
   padding-bottom: 5px;
 
@@ -825,10 +868,7 @@ h3 {
 ======================================== */
 
 .bio-main {
-  padding:
-    105px
-    24px
-    120px;
+  padding: 105px 24px 120px;
 }
 
 
@@ -871,10 +911,7 @@ h3 {
 
 
 .bio-text p {
-  margin:
-    0
-    0
-    30px;
+  margin: 0 0 30px;
 
   font-family: "Cormorant Garamond", serif;
 
@@ -962,14 +999,14 @@ footer {
 
   .hero-content {
     padding:
-      34px
-      40px
+      32px
+      38px
       55px;
   }
 
 
   .hero h1 {
-    font-size: 41px;
+    font-size: 40px;
   }
 
 
@@ -1067,7 +1104,7 @@ footer {
 
 
   .hero-photo img {
-    object-position: 47% 63%;
+    object-position: 47% 68%;
   }
 
 
@@ -1078,28 +1115,28 @@ footer {
 
   .hero-content {
     padding:
-      36px
+      34px
       23px
       60px;
   }
 
 
   .hero-role {
-    margin-bottom: 14px;
+    margin-bottom: 13px;
 
     font-size: 8px;
   }
 
 
   .hero h1 {
-    margin-bottom: 31px;
+    margin-bottom: 30px;
 
-    font-size: 38px;
+    font-size: 37px;
   }
 
 
   .hero-degree {
-    margin-bottom: 31px;
+    margin-bottom: 30px;
   }
 
 
@@ -1109,17 +1146,19 @@ footer {
 
 
   .hero-section {
-    margin-bottom: 29px;
+    margin-bottom: 28px;
   }
 
 
   .hero-keywords {
-    font-size: 12px;
+    font-size: 11px;
+
+    line-height: 1.8;
   }
 
 
   .hero-dissertation {
-    margin-bottom: 35px;
+    margin-bottom: 34px;
   }
 
 
@@ -1128,7 +1167,7 @@ footer {
   }
 
 
-  /* CONTENT */
+  /* GENERAL */
 
   .content {
     width: calc(100% - 38px);
@@ -1155,21 +1194,29 @@ footer {
   .about-layout {
     grid-template-columns: 1fr;
 
-    gap: 43px;
+    gap: 42px;
   }
 
 
-  .about-list li {
-    padding-top: 17px;
+  .about-block {
+    padding: 23px 0;
+  }
 
-    padding-bottom: 17px;
 
+  .about-lines p {
     font-size: 13px;
   }
 
 
-  .about-list li::before {
-    top: 16px;
+  .about-highlight {
+    font-size: 13px;
+
+    line-height: 1.8;
+  }
+
+
+  .about-research-title {
+    font-size: 23px;
   }
 
 
