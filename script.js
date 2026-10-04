@@ -21,20 +21,6 @@ const performances = [
   },
 
   {
-    date: "2026-05-02",
-    venue: "The Windsor of Savoy",
-    location: "Illinois, USA",
-    type: "Resonance Concert"
-  },
-
-  {
-    date: "2026-06-17",
-    venue: "Chungmu Art Center",
-    location: "Seoul, Republic of Korea",
-    type: "Junggu Wednesday Concert"
-  },
-
-  {
     date: "2026-08-13",
     venue: "S Talent Academy",
     location: "Da Nang, Vietnam",
@@ -318,11 +304,6 @@ function renderSchedule() {
     );
 
 
-  /*
-    Schedule가 없는 페이지에서는
-    아무것도 하지 않음
-  */
-
   if (
     !upcomingList ||
     !pastList
@@ -339,8 +320,7 @@ function renderSchedule() {
 
   /*
     공연 당일 = Upcoming
-
-    그 다음 날부터 = Past
+    다음 날부터 = Past
   */
 
   const upcoming =
@@ -434,15 +414,6 @@ function renderSchedule() {
 
 /* ========================================
    AUTOMATIC GALLERY
-
-   파일 이름:
-
-   gallery-01.jpg
-   gallery-02.jpg
-   gallery-03.jpg
-   ...
-
-   실제 존재하는 파일만 화면에 표시.
 ======================================== */
 
 const GALLERY_MAX_IMAGES =
@@ -537,11 +508,6 @@ function createGalleryItem(
     "gallery-item";
 
 
-  /*
-    첫 6장 이후 사진들은
-    MORE PHOTOS를 눌러야 표시
-  */
-
   if (
     index >=
     GALLERY_INITIAL_VISIBLE
@@ -607,11 +573,6 @@ async function renderGallery() {
     );
 
 
-  /*
-    Gallery가 없는 페이지에서는
-    아무것도 하지 않음
-  */
-
   if (
     !galleryGrid ||
     !galleryToggle ||
@@ -622,11 +583,6 @@ async function renderGallery() {
 
   }
 
-
-  /*
-    gallery-01.jpg ~ gallery-50.jpg
-    존재 여부 자동 확인
-  */
 
   const checks = [];
 
@@ -651,10 +607,6 @@ async function renderGallery() {
       checks
     );
 
-
-  /*
-    실제 존재하는 사진만 남김
-  */
 
   const existingImages =
     results
@@ -682,11 +634,6 @@ async function renderGallery() {
     }
   );
 
-
-  /*
-    사진이 6장 이하이면
-    MORE PHOTOS 버튼도 필요 없음
-  */
 
   if (
     existingImages.length <=
@@ -726,10 +673,7 @@ async function renderGallery() {
       if (expanded) {
 
         galleryToggle.innerHTML =
-          `MORE PHOTOS <span>↑</span>`;
-
-        galleryToggle.firstChild.textContent =
-          "SHOW LESS ";
+          `SHOW LESS <span>↑</span>`;
 
       }
 
@@ -748,11 +692,7 @@ async function renderGallery() {
 
 
 /* ========================================
-   HOME SCROLL REVEAL
-
-   메뉴 이동에는 사용되지 않음.
-   HOME에서 아래로 직접 스크롤할 때
-   섹션이 살짝 나타나는 효과만 담당.
+   SCROLL REVEAL
 ======================================== */
 
 const revealElements =
