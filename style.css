@@ -1354,3 +1354,8 @@ footer {
   }
 
 }
+/* PAST PERFORMANCE LIST */
+
+#past-list {
+  border-top: 1px solid #292724;
+}
