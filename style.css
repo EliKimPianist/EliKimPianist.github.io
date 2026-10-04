@@ -811,6 +811,7 @@ h3 {
   display: block;
 
   width: 100%;
+
   height: 100%;
 
   object-fit: cover;
@@ -826,21 +827,22 @@ h3 {
 }
 
 
-/* hidden photographs */
+/* ========================================
+   HIDDEN GALLERY PHOTOS
+======================================== */
 
 .gallery-extra {
   display: none;
 }
 
 
-/* when gallery is opened */
-
 .gallery-grid.expanded
 .gallery-extra {
   display: block;
 
   animation:
-    galleryReveal 0.65s
+    galleryReveal
+    0.65s
     cubic-bezier(0.22, 1, 0.36, 1)
     both;
 }
@@ -850,18 +852,25 @@ h3 {
 
   from {
     opacity: 0;
-    transform: translateY(18px);
+
+    transform:
+      translateY(15px);
   }
+
 
   to {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+      translateY(0);
   }
 
 }
 
 
-/* MORE PHOTOS */
+/* ========================================
+   MORE PHOTOS BUTTON
+======================================== */
 
 .gallery-more-wrap {
   display: flex;
@@ -869,6 +878,11 @@ h3 {
   justify-content: center;
 
   margin-top: 42px;
+}
+
+
+.gallery-more-wrap[hidden] {
+  display: none;
 }
 
 
@@ -950,11 +964,6 @@ h3 {
       1fr;
 
     gap: 12px;
-  }
-
-
-  .gallery-item {
-    aspect-ratio: 4 / 5;
   }
 
 
