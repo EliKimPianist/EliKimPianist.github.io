@@ -12,179 +12,221 @@
   <title>About | Eli Sunghyun Kim</title>
 
   <link rel="stylesheet" href="style.css">
+
+  <!--
+    ABOUT 독립 페이지에서만
+    가운데 진한 검은 줄 제거
+  -->
+  <style>
+    .standalone-about {
+      border-top: 0;
+    }
+  </style>
+
 </head>
 
 
 <body>
 
-<header class="site-header">
+  <!-- =====================================
+       HEADER
+  ====================================== -->
 
-  <a
-    class="wordmark"
-    href="index.html"
-  >
-    ELI KIM
-  </a>
-
-
-  <nav class="nav">
-
-    <a href="index.html">
-      HOME
-    </a>
+  <header class="site-header">
 
     <a
-      href="about.html"
-      aria-current="page"
+      class="wordmark"
+      href="index.html"
     >
-      ABOUT
+      ELI KIM
     </a>
 
-    <a href="research.html">
-      RESEARCH
-    </a>
 
-    <a href="schedule.html">
-      SCHEDULE
-    </a>
+    <nav class="nav">
 
-    <a href="gallery.html">
-      GALLERY
-    </a>
+      <a href="index.html">
+        HOME
+      </a>
 
-    <a href="contact.html">
-      CONTACT
-    </a>
+      <a
+        href="about.html"
+        aria-current="page"
+      >
+        ABOUT
+      </a>
 
-  </nav>
+      <a href="research.html">
+        RESEARCH
+      </a>
 
-</header>
+      <a href="schedule.html">
+        SCHEDULE
+      </a>
 
+      <a href="gallery.html">
+        GALLERY
+      </a>
 
+      <a href="contact.html">
+        CONTACT
+      </a>
 
-<main class="page-main">
+    </nav>
 
-  <div class="page-container">
-
-    <p class="eyebrow">
-      PROFILE
-    </p>
-
-
-    <h1 class="page-title">
-      About
-    </h1>
-
-
-    <div class="page-rule"></div>
+  </header>
 
 
-    <div class="about-content standalone-about">
 
+  <!-- =====================================
+       ABOUT PAGE
+  ====================================== -->
 
-      <div class="about-block">
+  <main class="page-main">
 
-        <p class="about-category">
-          CURRENT POSITION
-        </p>
+    <div class="page-container">
 
-        <div class="about-lines">
-
-          <p>
-            Doctoral Fellow —
-            University of Illinois Urbana-Champaign, USA
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="about-block">
-
-        <p class="about-category">
-          EDUCATION
-        </p>
-
-        <div class="about-lines">
-
-          <p>
-            DMA Candidate in Piano Performance &amp; Literature —
-            University of Illinois Urbana-Champaign, USA
-          </p>
-
-          <p>
-            MM — Indiana University Bloomington, USA
-          </p>
-
-          <p>
-            BM — Seoul National University, South Korea
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="about-block">
-
-        <p class="about-category">
-          PROFESSIONAL EXPERIENCE
-        </p>
-
-        <p class="about-highlight">
-          Concert Pianist · Festival Faculty · Masterclass Artist ·
-          Guest Artist · Adjudicator
-        </p>
-
-      </div>
-
-
-      <div class="about-block">
-
-        <p class="about-category">
-          CURRENT DMA RESEARCH TOPIC
-        </p>
-
-        <p class="about-research-title">
-
-          <em>
-            Reexamining the Toccata:
-            From Improvisation to Compositional Control
-          </em>
-
-        </p>
-
-      </div>
-
-
-      <p class="about-location">
-        LONDON · SEOUL · ILLINOIS
+      <p class="eyebrow">
+        PROFILE
       </p>
 
 
-      <a
-        class="bio-link"
-        href="biography.html"
-      >
-        READ FULL BIOGRAPHY
-        <span>→</span>
-      </a>
+      <h1 class="page-title">
+        About
+      </h1>
+
+
+      <!-- 위쪽 연한 줄은 그대로 유지 -->
+
+      <div class="page-rule"></div>
+
+
+      <div class="about-content standalone-about">
+
+
+        <!-- CURRENT POSITION -->
+
+        <div class="about-block">
+
+          <p class="about-category">
+            CURRENT POSITION
+          </p>
+
+
+          <div class="about-lines">
+
+            <p>
+              Doctoral Fellow —
+              University of Illinois Urbana-Champaign, USA
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- EDUCATION -->
+
+        <div class="about-block">
+
+          <p class="about-category">
+            EDUCATION
+          </p>
+
+
+          <div class="about-lines">
+
+            <p>
+              DMA Candidate in Piano Performance &amp; Literature —
+              University of Illinois Urbana-Champaign, USA
+            </p>
+
+            <p>
+              MM — Indiana University Bloomington, USA
+            </p>
+
+            <p>
+              BM — Seoul National University, South Korea
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- PROFESSIONAL EXPERIENCE -->
+
+        <div class="about-block">
+
+          <p class="about-category">
+            PROFESSIONAL EXPERIENCE
+          </p>
+
+
+          <p class="about-highlight">
+            Concert Pianist · Festival Faculty · Masterclass Artist ·
+            Guest Artist · Adjudicator
+          </p>
+
+        </div>
+
+
+
+        <!-- RESEARCH -->
+
+        <div class="about-block">
+
+          <p class="about-category">
+            CURRENT DMA RESEARCH TOPIC
+          </p>
+
+
+          <p class="about-research-title">
+
+            <em>
+              Reexamining the Toccata:
+              From Improvisation to Compositional Control
+            </em>
+
+          </p>
+
+        </div>
+
+
+
+        <p class="about-location">
+          LONDON · SEOUL · ILLINOIS
+        </p>
+
+
+
+        <a
+          class="bio-link"
+          href="biography.html"
+        >
+          READ FULL BIOGRAPHY
+          <span>→</span>
+        </a>
+
+      </div>
 
     </div>
 
-  </div>
-
-</main>
+  </main>
 
 
 
-<footer>
-  © 2026 ELI SUNGHYUN KIM
-</footer>
+  <!-- =====================================
+       FOOTER
+  ====================================== -->
+
+  <footer>
+    © 2026 ELI SUNGHYUN KIM
+  </footer>
 
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 
