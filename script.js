@@ -3,10 +3,11 @@ const header = document.querySelector(".site-header");
 
 
 /* ========================================
-   SECTION REVEAL
+   SCROLL REVEAL
 ======================================== */
 
 const observer = new IntersectionObserver(
+
   (entries) => {
 
     entries.forEach((entry) => {
@@ -24,18 +25,21 @@ const observer = new IntersectionObserver(
   },
 
   {
-    threshold: 0.12
+    threshold: 0.1
   }
+
 );
 
 
 revealElements.forEach((element) => {
+
   observer.observe(element);
+
 });
 
 
 /* ========================================
-   HEADER SCROLL
+   HEADER
 ======================================== */
 
 function updateHeader() {
