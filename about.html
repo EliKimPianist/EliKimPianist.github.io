@@ -13,14 +13,18 @@
 
   <link rel="stylesheet" href="style.css">
 
-  <!--
-    ABOUT 독립 페이지에서만
-    가운데 진한 검은 줄 제거
-  -->
+
   <style>
+
+    /*
+      About 독립 페이지의
+      두 번째 진한 줄 제거
+    */
+
     .standalone-about {
       border-top: 0;
     }
+
   </style>
 
 </head>
@@ -28,205 +32,251 @@
 
 <body>
 
-  <!-- =====================================
-       HEADER
-  ====================================== -->
+<header class="site-header">
 
-  <header class="site-header">
+  <a
+    class="wordmark"
+    href="index.html"
+  >
+    ELI KIM
+  </a>
 
-    <a
-      class="wordmark"
-      href="index.html"
-    >
-      ELI KIM
+
+  <nav class="nav">
+
+    <a href="index.html">
+      HOME
     </a>
 
+    <a
+      href="about.html"
+      aria-current="page"
+    >
+      ABOUT
+    </a>
 
-    <nav class="nav">
+    <a href="research.html">
+      RESEARCH
+    </a>
 
-      <a href="index.html">
-        HOME
-      </a>
+    <a href="schedule.html">
+      SCHEDULE
+    </a>
 
-      <a
-        href="about.html"
-        aria-current="page"
-      >
-        ABOUT
-      </a>
+    <a href="gallery.html">
+      GALLERY
+    </a>
 
-      <a href="research.html">
-        RESEARCH
-      </a>
+    <a href="contact.html">
+      CONTACT
+    </a>
 
-      <a href="schedule.html">
-        SCHEDULE
-      </a>
+  </nav>
 
-      <a href="gallery.html">
-        GALLERY
-      </a>
+</header>
 
-      <a href="contact.html">
-        CONTACT
-      </a>
 
-    </nav>
 
-  </header>
+<main class="page-main">
 
+  <div class="page-container">
 
+    <p class="eyebrow">
+      PROFILE
+    </p>
 
-  <!-- =====================================
-       ABOUT PAGE
-  ====================================== -->
 
-  <main class="page-main">
+    <h1 class="page-title">
+      About
+    </h1>
 
-    <div class="page-container">
 
-      <p class="eyebrow">
-        PROFILE
-      </p>
+    <div class="page-rule"></div>
 
 
-      <h1 class="page-title">
-        About
-      </h1>
+    <div class="about-content standalone-about">
 
 
-      <!-- 위쪽 연한 줄은 그대로 유지 -->
+      <!-- CURRENT POSITION -->
 
-      <div class="page-rule"></div>
+      <div class="about-block">
 
-
-      <div class="about-content standalone-about">
-
-
-        <!-- CURRENT POSITION -->
-
-        <div class="about-block">
-
-          <p class="about-category">
-            CURRENT POSITION
-          </p>
-
-
-          <div class="about-lines">
-
-            <p>
-              Doctoral Fellow —
-              University of Illinois Urbana-Champaign, USA
-            </p>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- EDUCATION -->
-
-        <div class="about-block">
-
-          <p class="about-category">
-            EDUCATION
-          </p>
-
-
-          <div class="about-lines">
-
-            <p>
-              DMA Candidate in Piano Performance &amp; Literature —
-              University of Illinois Urbana-Champaign, USA
-            </p>
-
-            <p>
-              MM — Indiana University Bloomington, USA
-            </p>
-
-            <p>
-              BM — Seoul National University, South Korea
-            </p>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- PROFESSIONAL EXPERIENCE -->
-
-        <div class="about-block">
-
-          <p class="about-category">
-            PROFESSIONAL EXPERIENCE
-          </p>
-
-
-          <p class="about-highlight">
-            Concert Pianist · Festival Faculty · Masterclass Artist ·
-            Guest Artist · Adjudicator
-          </p>
-
-        </div>
-
-
-
-        <!-- RESEARCH -->
-
-        <div class="about-block">
-
-          <p class="about-category">
-            CURRENT DMA RESEARCH TOPIC
-          </p>
-
-
-          <p class="about-research-title">
-
-            <em>
-              Reexamining the Toccata:
-              From Improvisation to Compositional Control
-            </em>
-
-          </p>
-
-        </div>
-
-
-
-        <p class="about-location">
-          LONDON · SEOUL · ILLINOIS
+        <p class="about-category">
+          CURRENT POSITION
         </p>
 
+        <div class="about-lines">
 
+          <p>
+            Doctoral Fellow —
+            University of Illinois Urbana-Champaign, USA
+          </p>
 
-        <a
-          class="bio-link"
-          href="biography.html"
-        >
-          READ FULL BIOGRAPHY
-          <span>→</span>
-        </a>
+        </div>
 
       </div>
 
+
+
+      <!-- EDUCATION -->
+
+      <div class="about-block">
+
+        <p class="about-category">
+          EDUCATION
+        </p>
+
+        <div class="about-lines">
+
+          <p>
+            DMA Candidate in Piano Performance &amp; Literature —
+            University of Illinois Urbana-Champaign, USA
+          </p>
+
+          <p>
+            MM — Indiana University Bloomington, USA
+          </p>
+
+          <p>
+            BM — Seoul National University, South Korea
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- FELLOWSHIPS & AWARDS -->
+
+      <div class="about-block">
+
+        <p class="about-category">
+          SELECTED FELLOWSHIPS &amp; AWARDS
+        </p>
+
+
+        <div class="about-awards">
+
+          <p>
+            <span class="award-year">
+              2023–2026
+            </span>
+
+            <span>
+              Langford Fellowship —
+              University of Illinois Urbana-Champaign
+            </span>
+          </p>
+
+
+          <p>
+            <span class="award-year">
+              2025
+            </span>
+
+            <span>
+              Korean Honor Scholarship —
+              Embassy of the Republic of Korea in the USA
+            </span>
+          </p>
+
+
+          <p>
+            <span class="award-year">
+              2025
+            </span>
+
+            <span>
+              Scholarship Award —
+              Seoul National University Alumni Association
+              of the Chicago Area
+            </span>
+          </p>
+
+
+          <p>
+            <span class="award-year">
+              2024
+            </span>
+
+            <span>
+              Grand Prize —
+              Youngsan Cultural Foundation,
+              Professional Artists Development Project
+            </span>
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- PROFESSIONAL EXPERIENCE -->
+
+      <div class="about-block">
+
+        <p class="about-category">
+          PROFESSIONAL EXPERIENCE
+        </p>
+
+        <p class="about-highlight">
+          Concert Pianist · Festival Faculty · Masterclass Artist ·
+          Guest Artist · Adjudicator
+        </p>
+
+      </div>
+
+
+
+      <!-- RESEARCH -->
+
+      <div class="about-block">
+
+        <p class="about-category">
+          CURRENT DMA RESEARCH TOPIC
+        </p>
+
+        <p class="about-research-title">
+
+          <em>
+            Reexamining the Toccata:
+            From Improvisation to Compositional Control
+          </em>
+
+        </p>
+
+      </div>
+
+
+      <p class="about-location">
+        LONDON · SEOUL · ILLINOIS
+      </p>
+
+
+      <a
+        class="bio-link"
+        href="biography.html"
+      >
+        READ FULL BIOGRAPHY
+        <span>→</span>
+      </a>
+
     </div>
 
-  </main>
+  </div>
+
+</main>
 
 
 
-  <!-- =====================================
-       FOOTER
-  ====================================== -->
-
-  <footer>
-    © 2026 ELI SUNGHYUN KIM
-  </footer>
+<footer>
+  © 2026 ELI SUNGHYUN KIM
+</footer>
 
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 
