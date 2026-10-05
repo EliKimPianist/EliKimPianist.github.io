@@ -1981,3 +1981,179 @@ footer {
   }
 
 }
+/* ========================================
+   HOME — UPDATED ARTIST / RESEARCH PROFILE
+======================================== */
+
+
+/* Piano Performance & Literature emphasis */
+
+.hero-major {
+  font-weight: 500;
+  color: #37332f;
+}
+
+
+/* Main keywords spacing */
+
+.hero-main-keywords {
+  margin-top: 30px;
+}
+
+
+/* ========================================
+   CURRENT ARTISTIC PROJECTS
+======================================== */
+
+.projects-section {
+  background: #f7f5f0;
+}
+
+
+.projects-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 0;
+
+  margin-top: 46px;
+
+  border-top:
+    1px solid #bfb8ae;
+
+  border-bottom:
+    1px solid #bfb8ae;
+}
+
+
+.project-card {
+  padding:
+    34px
+    38px
+    38px;
+
+  border-right:
+    1px solid #d2ccc3;
+}
+
+
+.project-card:last-child {
+  border-right: 0;
+}
+
+
+.project-number {
+  margin:
+    0
+    0
+    30px;
+
+  font-family:
+    "Quicksand",
+    sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.15em;
+
+  color: #938b82;
+}
+
+
+.project-card h3 {
+  margin:
+    0
+    0
+    20px;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 30px;
+
+  font-weight: 400;
+
+  line-height: 1.08;
+
+  color: #282521;
+}
+
+
+.project-card > p:last-child {
+  max-width: 330px;
+
+  margin: 0;
+
+  font-family:
+    "Quicksand",
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 400;
+
+  line-height: 1.85;
+
+  color: #6e675f;
+}
+
+
+
+/* ========================================
+   MOBILE — PROJECTS
+======================================== */
+
+@media (max-width: 760px) {
+
+  .hero-main-keywords {
+    margin-top: 27px;
+  }
+
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+
+    margin-top: 34px;
+  }
+
+
+  .project-card {
+    padding:
+      28px
+      0
+      30px;
+
+    border-right: 0;
+
+    border-bottom:
+      1px solid #d2ccc3;
+  }
+
+
+  .project-card:last-child {
+    border-bottom: 0;
+  }
+
+
+  .project-number {
+    margin-bottom: 18px;
+  }
+
+
+  .project-card h3 {
+    font-size: 27px;
+  }
+
+
+  .project-card > p:last-child {
+    max-width: 100%;
+
+    font-size: 11px;
+  }
+
+}
