@@ -3,7 +3,22 @@
 ======================================== */
 
 const performances = [
+{
+  date: "2027-01-28",
+  time: "1:00 PM",
+  venue: "University Church of St Mary the Virgin",
+  location: "Oxford, UK",
+  type: "Lunchtime Recital"
+},
 
+{
+  date: "2028-03-29",
+  time: "2:00 PM",
+  venue: "St Nicholas of Myra",
+  location: "Brighton, UK",
+  type: "Lunchtime Recital"
+},
+   
   {
     date: "2026-04-11",
     time: "3:30 PM",
@@ -85,7 +100,7 @@ const performances = [
   },
 
   {
-    date: "2027-02-15",
+    date: "2027-03-09",
     time: "1:10 PM",
     venue: "Pusey House",
     location: "Oxford, UK",
