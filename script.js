@@ -4,6 +4,14 @@
 
 const performances = [
 
+    {
+  date: "2027-06-30",
+  time: "1:15 PM",
+  venue: "St Paul's Clifton",
+  location: "Bristol, UK",
+  type: "Lunchtime Recital"
+},
+   
   {
   date: "2028-01-06",
   time: "1:10 PM",
