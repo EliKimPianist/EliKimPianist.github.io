@@ -1,4 +1,31 @@
 /* ========================================
+   GOOGLE ANALYTICS
+======================================== */
+
+window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+  dataLayer.push(arguments);
+}
+
+window.gtag = gtag;
+
+const googleAnalyticsScript = document.createElement("script");
+
+googleAnalyticsScript.async = true;
+
+googleAnalyticsScript.src =
+  "https://www.googletagmanager.com/gtag/js?id=G-F1BVP6STJG";
+
+document.head.appendChild(googleAnalyticsScript);
+
+gtag("js", new Date());
+
+gtag("config", "G-F1BVP6STJG");
+
+
+
+/* ========================================
    PERFORMANCE DATABASE
 ======================================== */
 
