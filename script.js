@@ -4,12 +4,12 @@
 
 const performances = [
 
-   {
-  date: "2028-01-06”,
- time: “1:10 PM",
-  venue: "St Matthew’s Redhil",
-  location: “Redhill, UK",
-  type: “Lunchtime Recital"
+  {
+  date: "2028-01-06",
+  time: "1:10 PM",
+  venue: "St Matthew’s Redhill",
+  location: "Redhill, UK",
+  type: "Lunchtime Recital"
 },
    
    {
