@@ -3,7 +3,16 @@
 ======================================== */
 
 const performances = [
-{
+
+   {
+  date: "2028-01-06”,
+ time: “1:10 PM",
+  venue: "St Matthew’s Redhil",
+  location: “Redhill, UK",
+  type: “Lunchtime Recital"
+},
+   
+   {
   date: "2027-01-28",
   time: "1:00 PM",
   venue: "University Church of St Mary the Virgin",
