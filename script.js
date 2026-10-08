@@ -246,7 +246,6 @@ function formatPerformanceDate(dateString) {
 }
 
 
-
 /* ========================================
    CREATE PERFORMANCE
 ======================================== */
@@ -273,6 +272,7 @@ function createPerformanceElement(performance) {
 
   date.textContent =
     dateAndTime;
+
 
 
   const details =
@@ -302,7 +302,19 @@ function createPerformanceElement(performance) {
 
 
 
-  /* MORE INFO LINK */
+  /* DATE */
+
+  event.appendChild(date);
+
+
+
+  /* DETAILS */
+
+  event.appendChild(details);
+
+
+
+  /* MORE INFO */
 
   if (performance.link) {
 
@@ -330,14 +342,9 @@ function createPerformanceElement(performance) {
     );
 
 
-    details.appendChild(link);
+    event.appendChild(link);
 
   }
-
-
-  event.appendChild(date);
-
-  event.appendChild(details);
 
 
   return event;
