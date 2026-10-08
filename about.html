@@ -9,6 +9,11 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    name="description"
+    content="About pianist and researcher Eli Sunghyun Kim."
+  >
+
   <title>About | Eli Sunghyun Kim</title>
 
   <link rel="stylesheet" href="style.css">
@@ -16,13 +21,99 @@
 
   <style>
 
-    /*
-      About 독립 페이지의
-      두 번째 진한 줄 제거
-    */
+    /* Standalone About page:
+       remove the extra dark line */
 
     .standalone-about {
       border-top: 0;
+    }
+
+
+    /* ========================================
+       EDUCATION
+    ======================================== */
+
+    .education-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+
+    .education-entry {
+      margin: 0;
+    }
+
+
+    .education-degree {
+      margin: 0 0 3px;
+
+      font-family: "Quicksand", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.6;
+
+      color: #37332f;
+    }
+
+
+    .education-school {
+      margin: 0;
+
+      font-family: "Quicksand", sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.7;
+
+      color: #777069;
+    }
+
+
+    .minor-studies {
+      margin-top: 24px;
+      padding-top: 20px;
+
+      border-top: 1px solid #d8d2ca;
+    }
+
+
+    .minor-studies-label {
+      margin: 0 0 8px;
+
+      font-family: "Quicksand", sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+
+      letter-spacing: 0.14em;
+
+      color: #8b837b;
+    }
+
+
+    .minor-studies-text {
+      margin: 0;
+
+      font-family: "Quicksand", sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.8;
+
+      color: #5f5953;
+    }
+
+
+    @media (max-width: 760px) {
+
+      .education-degree {
+        font-size: 13px;
+      }
+
+
+      .education-school,
+      .minor-studies-text {
+        font-size: 11px;
+      }
+
     }
 
   </style>
@@ -94,16 +185,20 @@
     <div class="page-rule"></div>
 
 
+
     <div class="about-content standalone-about">
 
 
-      <!-- CURRENT POSITION -->
+      <!-- =====================================
+           CURRENT POSITION
+      ====================================== -->
 
       <div class="about-block">
 
         <p class="about-category">
           CURRENT POSITION
         </p>
+
 
         <div class="about-lines">
 
@@ -118,7 +213,9 @@
 
 
 
-      <!-- EDUCATION -->
+      <!-- =====================================
+           EDUCATION
+      ====================================== -->
 
       <div class="about-block">
 
@@ -126,19 +223,58 @@
           EDUCATION
         </p>
 
-        <div class="about-lines">
 
-          <p>
-            DMA Candidate in Piano Performance &amp; Literature —
-            University of Illinois Urbana-Champaign, USA
+        <div class="education-list">
+
+          <div class="education-entry">
+
+            <p class="education-degree">
+              DMA Candidate in Piano Performance &amp; Literature
+            </p>
+
+            <p class="education-school">
+              University of Illinois Urbana-Champaign, USA
+            </p>
+
+          </div>
+
+
+          <div class="education-entry">
+
+            <p class="education-degree">
+              MM in Piano Performance
+            </p>
+
+            <p class="education-school">
+              Indiana University Bloomington, USA
+            </p>
+
+          </div>
+
+
+          <div class="education-entry">
+
+            <p class="education-degree">
+              BM in Piano Performance
+            </p>
+
+            <p class="education-school">
+              Seoul National University, South Korea
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="minor-studies">
+
+          <p class="minor-studies-label">
+            MINOR STUDIES
           </p>
 
-          <p>
-            MM — Indiana University Bloomington, USA
-          </p>
-
-          <p>
-            BM — Seoul National University, South Korea
+          <p class="minor-studies-text">
+            Harpsichord · Composition · Vocal Music · Piano Pedagogy
           </p>
 
         </div>
@@ -147,7 +283,9 @@
 
 
 
-      <!-- FELLOWSHIPS & AWARDS -->
+      <!-- =====================================
+           FELLOWSHIPS & AWARDS
+      ====================================== -->
 
       <div class="about-block">
 
@@ -159,6 +297,7 @@
         <div class="about-awards">
 
           <p>
+
             <span class="award-year">
               2023–2026
             </span>
@@ -167,10 +306,12 @@
               Langford Fellowship —
               University of Illinois Urbana-Champaign
             </span>
+
           </p>
 
 
           <p>
+
             <span class="award-year">
               2025
             </span>
@@ -179,10 +320,12 @@
               Korean Honor Scholarship —
               Embassy of the Republic of Korea in the USA
             </span>
+
           </p>
 
 
           <p>
+
             <span class="award-year">
               2025
             </span>
@@ -192,10 +335,12 @@
               Seoul National University Alumni Association
               of the Chicago Area
             </span>
+
           </p>
 
 
           <p>
+
             <span class="award-year">
               2024
             </span>
@@ -205,6 +350,7 @@
               Youngsan Cultural Foundation,
               Professional Artists Development Project
             </span>
+
           </p>
 
         </div>
@@ -213,13 +359,16 @@
 
 
 
-      <!-- PROFESSIONAL EXPERIENCE -->
+      <!-- =====================================
+           PROFESSIONAL EXPERIENCE
+      ====================================== -->
 
       <div class="about-block">
 
         <p class="about-category">
           PROFESSIONAL EXPERIENCE
         </p>
+
 
         <p class="about-highlight">
           Concert Pianist · Festival Faculty · Masterclass Artist ·
@@ -230,13 +379,16 @@
 
 
 
-      <!-- RESEARCH -->
+      <!-- =====================================
+           RESEARCH
+      ====================================== -->
 
       <div class="about-block">
 
         <p class="about-category">
           CURRENT DMA RESEARCH TOPIC
         </p>
+
 
         <p class="about-research-title">
 
@@ -248,6 +400,7 @@
         </p>
 
       </div>
+
 
 
       <p class="about-location">
