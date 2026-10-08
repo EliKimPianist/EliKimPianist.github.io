@@ -2338,3 +2338,50 @@ footer {
   }
 
 }
+
+/* ========================================
+   CURRENT ARTISTIC PROJECTS — 3 COLUMNS
+======================================== */
+
+.projects-grid,
+.projects-grid-two {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+
+.project-card {
+  padding: 34px 34px 40px;
+}
+
+
+.project-card:last-child {
+  border-right: 0;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 760px) {
+
+  .projects-grid,
+  .projects-grid-two {
+    grid-template-columns: 1fr;
+  }
+
+
+  .project-card {
+    padding: 28px 0 30px;
+
+    border-right: 0;
+
+    border-bottom: 1px solid #d2ccc3;
+  }
+
+
+  .project-card:last-child {
+    border-bottom: 0;
+  }
+
+}
