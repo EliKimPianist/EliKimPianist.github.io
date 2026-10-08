@@ -193,7 +193,7 @@ const performances = [
     date: "2028-01-06",
     time: "1:10 PM",
     venue: "St Matthew’s Redhill",
-    location: "London, UK",
+    location: "Redhill, UK",
     type: "Lunchtime Recital"
   },
 
