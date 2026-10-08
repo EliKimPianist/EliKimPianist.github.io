@@ -31,44 +31,13 @@ gtag("config", "G-F1BVP6STJG");
 
 const performances = [
 
-    {
-  date: "2027-06-30",
-  time: "1:15 PM",
-  venue: "St Paul's Clifton",
-  location: "Bristol, UK",
-  type: "Lunchtime Recital"
-},
-   
-  {
-  date: "2028-01-06",
-  time: "1:10 PM",
-  venue: "St Matthew’s Redhill",
-  location: "Redhill, UK",
-  type: "Lunchtime Recital"
-},
-   
-   {
-  date: "2027-01-28",
-  time: "1:00 PM",
-  venue: "University Church of St Mary the Virgin",
-  location: "Oxford, UK",
-  type: "Lunchtime Recital"
-},
-
-{
-  date: "2028-03-29",
-  time: "2:00 PM",
-  venue: "St Nicholas of Myra",
-  location: "Brighton, UK",
-  type: "Lunchtime Recital"
-},
-   
   {
     date: "2026-04-11",
     time: "3:30 PM",
     venue: "Smith Memorial Recital Hall",
     location: "Illinois, USA",
-    type: "Doctoral Solo Recital"
+    type: "Doctoral Solo Recital",
+    link: "https://music.illinois.edu/about-us/events/sunghyun-kim-doctoral-piano-recital-1-of-2/"
   },
 
   {
@@ -76,7 +45,8 @@ const performances = [
     time: "7:30 PM",
     venue: "Smith Memorial Recital Hall",
     location: "Illinois, USA",
-    type: "Doctoral Solo Recital"
+    type: "Doctoral Solo Recital",
+    link: "https://music.illinois.edu/about-us/events/sunghyun-kim-doctoral-piano-recital-2-of-2/"
   },
 
   {
@@ -108,7 +78,8 @@ const performances = [
     time: "1:00 PM",
     venue: "St Olave’s Hart Street",
     location: "London, UK",
-    type: "Lunchtime Recital"
+    type: "Lunchtime Recital",
+    link: "https://saintolave.com/index.php/2026/09/28/lunchtime-concerts-thursday-1-october-eli-sunghyun-kim/"
   },
 
   {
@@ -124,7 +95,8 @@ const performances = [
     time: "1:15 PM",
     venue: "St Dunstan in the West",
     location: "London, UK",
-    type: "Lunchtime Recital"
+    type: "Lunchtime Recital",
+    link: "https://www.eventbrite.com/e/eli-sunghyun-kim-lunchtime-piano-recital-tickets-2002427027142"
   },
 
   {
@@ -132,7 +104,8 @@ const performances = [
     time: "1:00 PM",
     venue: "Cross Street Unitarian Chapel",
     location: "Manchester, UK",
-    type: "Lunchtime Recital"
+    type: "Lunchtime Recital",
+    link: "https://www.ticketsource.com/cross-street-unitarian-chapel/eli-sunghyun-kim-piano-free-friday-lunchtime-recital/e-pmbjpk"
   },
 
   {
@@ -144,7 +117,15 @@ const performances = [
   },
 
   {
-    date: "2027-03-09",
+    date: "2027-01-28",
+    time: "1:00 PM",
+    venue: "University Church of St Mary the Virgin",
+    location: "Oxford, UK",
+    type: "Lunchtime Recital"
+  },
+
+  {
+    date: "2027-02-15",
     time: "1:10 PM",
     venue: "Pusey House",
     location: "Oxford, UK",
@@ -164,7 +145,8 @@ const performances = [
     time: "12:45 PM",
     venue: "St Ann’s Church",
     location: "Dublin, Ireland",
-    type: "Lunchtime Recital"
+    type: "Lunchtime Recital",
+    link: "https://www.stannsrecitals.com/events/eli-sunghyun-kim"
   },
 
   {
@@ -208,6 +190,14 @@ const performances = [
   },
 
   {
+    date: "2028-03-29",
+    time: "2:00 PM",
+    venue: "St Nicholas of Myra",
+    location: "Brighton, UK",
+    type: "Lunchtime Recital"
+  },
+
+  {
     date: "2029-06-19",
     time: "1:00 PM",
     venue: "Romsey Abbey",
@@ -220,10 +210,10 @@ const performances = [
 
 
 /* ========================================
-   DATE FUNCTIONS
+   PERFORMANCE DATE FUNCTIONS
 ======================================== */
 
-function parseLocalDate(dateString) {
+function getPerformanceDate(dateString) {
 
   const [year, month, day] =
     dateString.split("-").map(Number);
@@ -233,159 +223,247 @@ function parseLocalDate(dateString) {
     month - 1,
     day
   );
-}
 
-
-function getToday() {
-
-  const now = new Date();
-
-  return new Date(
-    now.getFullYear(),
-    now.getMonth(),
-    now.getDate()
-  );
 }
 
 
 function formatPerformanceDate(dateString) {
 
   const date =
-    parseLocalDate(dateString);
+    getPerformanceDate(dateString);
 
-  const months = [
-    "JAN",
-    "FEB",
-    "MAR",
-    "APR",
-    "MAY",
-    "JUN",
-    "JUL",
-    "AUG",
-    "SEP",
-    "OCT",
-    "NOV",
-    "DEC"
-  ];
+  return date
+    .toLocaleDateString(
+      "en-GB",
+      {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+      }
+    )
+    .toUpperCase();
 
-  const day =
-    String(date.getDate())
-      .padStart(2, "0");
-
-  const month =
-    months[date.getMonth()];
-
-  const year =
-    date.getFullYear();
-
-  return `${day} ${month} ${year}`;
 }
 
 
 
 /* ========================================
-   PERFORMANCE ELEMENT
+   CREATE PERFORMANCE
 ======================================== */
 
 function createPerformanceElement(performance) {
 
-  const article =
-    document.createElement("article");
+  const event =
+    document.createElement("div");
 
-  article.className =
-    "event";
+  event.className = "event";
+
+
+  const date =
+    document.createElement("div");
+
+  date.className = "date";
+
 
   const dateAndTime =
     performance.time
       ? `${formatPerformanceDate(performance.date)} · ${performance.time}`
       : formatPerformanceDate(performance.date);
 
-  article.innerHTML = `
 
-    <div class="date">
-      ${dateAndTime}
-    </div>
+  date.textContent =
+    dateAndTime;
 
-    <div>
 
-      <h3>
-        ${performance.venue}
-      </h3>
+  const details =
+    document.createElement("div");
 
-      <p>
-        ${performance.location} · ${performance.type}
-      </p>
+  details.className =
+    "event-details";
 
-    </div>
 
-  `;
+  const venue =
+    document.createElement("h3");
 
-  return article;
+  venue.textContent =
+    performance.venue;
+
+
+  const info =
+    document.createElement("p");
+
+  info.textContent =
+    `${performance.location} · ${performance.type}`;
+
+
+  details.appendChild(venue);
+
+  details.appendChild(info);
+
+
+
+  /* MORE INFO LINK */
+
+  if (performance.link) {
+
+    const link =
+      document.createElement("a");
+
+    link.className =
+      "event-more-info";
+
+    link.href =
+      performance.link;
+
+    link.target =
+      "_blank";
+
+    link.rel =
+      "noopener noreferrer";
+
+    link.textContent =
+      "MORE INFO →";
+
+    link.setAttribute(
+      "aria-label",
+      `More information about ${performance.venue}`
+    );
+
+
+    details.appendChild(link);
+
+  }
+
+
+  event.appendChild(date);
+
+  event.appendChild(details);
+
+
+  return event;
+
 }
 
 
 
 /* ========================================
-   AUTOMATIC SCHEDULE
+   RENDER PERFORMANCE SCHEDULE
 ======================================== */
 
-function renderSchedule() {
+function renderPerformances() {
 
   const upcomingList =
-    document.querySelector("#upcoming-list");
+    document.getElementById(
+      "upcoming-list"
+    );
 
   const pastList =
-    document.querySelector("#past-list");
+    document.getElementById(
+      "past-list"
+    );
 
-  if (!upcomingList || !pastList) {
+
+  if (
+    !upcomingList &&
+    !pastList
+  ) {
     return;
   }
 
+
   const today =
-    getToday();
+    new Date();
+
+  today.setHours(
+    0,
+    0,
+    0,
+    0
+  );
+
 
   const upcoming =
     performances
-      .filter(
-        performance =>
-          parseLocalDate(performance.date) >= today
-      )
-      .sort(
-        (a, b) =>
-          parseLocalDate(a.date) -
-          parseLocalDate(b.date)
-      );
+      .filter((performance) => {
+
+        const date =
+          getPerformanceDate(
+            performance.date
+          );
+
+        return date >= today;
+
+      })
+      .sort((a, b) => {
+
+        return (
+          getPerformanceDate(a.date) -
+          getPerformanceDate(b.date)
+        );
+
+      });
+
 
   const past =
     performances
-      .filter(
-        performance =>
-          parseLocalDate(performance.date) < today
-      )
-      .sort(
-        (a, b) =>
-          parseLocalDate(b.date) -
-          parseLocalDate(a.date)
-      );
+      .filter((performance) => {
 
-  upcomingList.innerHTML = "";
-  pastList.innerHTML = "";
+        const date =
+          getPerformanceDate(
+            performance.date
+          );
 
-  upcoming.forEach(performance => {
+        return date < today;
 
-    upcomingList.appendChild(
-      createPerformanceElement(performance)
+      })
+      .sort((a, b) => {
+
+        return (
+          getPerformanceDate(b.date) -
+          getPerformanceDate(a.date)
+        );
+
+      });
+
+
+
+  if (upcomingList) {
+
+    upcomingList.innerHTML = "";
+
+    upcoming.forEach(
+      (performance) => {
+
+        upcomingList.appendChild(
+          createPerformanceElement(
+            performance
+          )
+        );
+
+      }
     );
 
-  });
+  }
 
-  past.forEach(performance => {
 
-    pastList.appendChild(
-      createPerformanceElement(performance)
+
+  if (pastList) {
+
+    pastList.innerHTML = "";
+
+    past.forEach(
+      (performance) => {
+
+        pastList.appendChild(
+          createPerformanceElement(
+            performance
+          )
+        );
+
+      }
     );
 
-  });
+  }
 
 }
 
@@ -397,79 +475,41 @@ function renderSchedule() {
 
 const galleryCaptions = {
 
-  1: "London, UK · 2026",
-  2: "Da Nang City, Vietnam · 2026",
-  3: "Ho Chi Minh City, Vietnam · 2026",
+  1: "London · 2026",
+
+  2: "Da Nang · 2026",
+
+  3: "Ho Chi Minh City · 2026",
+
   4: "Hong Kong · 2026",
+
   5: "California, USA · 2025",
+
   6: "Illinois, USA · 2024",
-  7: "Ho Chi Minh City, Vietnam · 2026",
-  8: "Da Nang City, Vietnam · 2026",
+
+  7: "Ho Chi Minh City · 2026",
+
+  8: "Da Nang · 2026",
+
   9: "Illinois, USA · 2026",
+
   10: "Hong Kong · 2026",
+
   11: "California, USA · 2025",
-  12: "Da Nang City, Vietnam · 2026",
+
+  12: "Da Nang · 2026",
+
   13: "Seoul, South Korea · 2024"
 
 };
 
 
-
-/* ========================================
-   AUTOMATIC GALLERY
-======================================== */
-
-const GALLERY_MAX_IMAGES = 50;
-
-const GALLERY_INITIAL_VISIBLE = 6;
+const GALLERY_INITIAL_VISIBLE =
+  6;
 
 
-function galleryFileName(number) {
-
-  const padded =
-    String(number)
-      .padStart(2, "0");
-
-  return `gallery-${padded}.jpg`;
-}
-
-
-
-/* ========================================
-   CHECK IMAGE
-======================================== */
-
-function checkGalleryImage(number) {
-
-  return new Promise(resolve => {
-
-    const src =
-      galleryFileName(number);
-
-    const testImage =
-      new Image();
-
-    testImage.onload = () => {
-
-      resolve({
-        number,
-        src
-      });
-
-    };
-
-    testImage.onerror = () => {
-
-      resolve(null);
-
-    };
-
-    testImage.src =
-      src;
-
-  });
-
-}
+const GALLERY_MAX =
+  50;
 
 
 
@@ -498,6 +538,8 @@ function createGalleryItem(
       "gallery-extra"
     );
 
+    item.hidden = true;
+
   }
 
 
@@ -521,9 +563,13 @@ function createGalleryItem(
     "lazy";
 
 
-  imageFrame.appendChild(image);
+  imageFrame.appendChild(
+    image
+  );
 
-  item.appendChild(imageFrame);
+  item.appendChild(
+    imageFrame
+  );
 
 
   const captionText =
@@ -543,135 +589,239 @@ function createGalleryItem(
     caption.textContent =
       captionText;
 
-    item.appendChild(caption);
+
+    item.appendChild(
+      caption
+    );
 
   }
 
 
   return item;
+
 }
 
 
 
 /* ========================================
-   RENDER GALLERY
+   LOAD GALLERY
 ======================================== */
 
-async function renderGallery() {
+function loadGallery() {
 
   const galleryGrid =
-    document.querySelector(
-      "#gallery-grid"
-    );
-
-  const galleryToggle =
-    document.querySelector(
-      "#gallery-toggle"
-    );
-
-  const galleryMoreWrap =
-    document.querySelector(
-      "#gallery-more-wrap"
+    document.getElementById(
+      "gallery-grid"
     );
 
 
-  if (
-    !galleryGrid ||
-    !galleryToggle ||
-    !galleryMoreWrap
-  ) {
-
+  if (!galleryGrid) {
     return;
-
   }
 
 
-  const checks = [];
+  const galleryMoreWrap =
+    document.getElementById(
+      "gallery-more-wrap"
+    );
+
+
+  const galleryToggle =
+    document.getElementById(
+      "gallery-toggle"
+    );
+
+
+  const imageChecks =
+    [];
 
 
   for (
-    let number = 1;
-    number <= GALLERY_MAX_IMAGES;
-    number++
+    let i = 1;
+    i <= GALLERY_MAX;
+    i++
   ) {
 
-    checks.push(
-      checkGalleryImage(number)
+    const number =
+      String(i).padStart(
+        2,
+        "0"
+      );
+
+
+    const src =
+      `gallery-${number}.jpg`;
+
+
+    imageChecks.push(
+
+      new Promise(
+        (resolve) => {
+
+          const image =
+            new Image();
+
+
+          image.onload =
+            () => {
+
+              resolve({
+                number: i,
+                src
+              });
+
+            };
+
+
+          image.onerror =
+            () => {
+
+              resolve(null);
+
+            };
+
+
+          image.src =
+            src;
+
+        }
+      )
+
     );
 
   }
 
 
-  const results =
-    await Promise.all(checks);
+  Promise
+    .all(imageChecks)
+    .then((results) => {
+
+      const existingImages =
+        results.filter(Boolean);
 
 
-  const existingImages =
-    results
-      .filter(Boolean)
-      .sort(
-        (a, b) =>
-          a.number - b.number
+      galleryGrid.innerHTML =
+        "";
+
+
+      existingImages.forEach(
+        (
+          imageData,
+          index
+        ) => {
+
+          galleryGrid.appendChild(
+            createGalleryItem(
+              imageData,
+              index
+            )
+          );
+
+        }
       );
 
 
-  galleryGrid.innerHTML =
-    "";
+      if (
+        galleryMoreWrap &&
+        galleryToggle &&
+        existingImages.length >
+          GALLERY_INITIAL_VISIBLE
+      ) {
+
+        galleryMoreWrap.hidden =
+          false;
 
 
-  existingImages.forEach(
-    (imageData, index) => {
+        let expanded =
+          false;
 
-      galleryGrid.appendChild(
-        createGalleryItem(
-          imageData,
-          index
-        )
+
+        galleryToggle.addEventListener(
+          "click",
+          () => {
+
+            expanded =
+              !expanded;
+
+
+            const extraItems =
+              galleryGrid.querySelectorAll(
+                ".gallery-extra"
+              );
+
+
+            extraItems.forEach(
+              (item) => {
+
+                item.hidden =
+                  !expanded;
+
+              }
+            );
+
+
+            galleryToggle.innerHTML =
+              expanded
+                ? 'SHOW LESS <span>↑</span>'
+                : 'MORE PHOTOS <span>↓</span>';
+
+          }
+        );
+
+      }
+
+    });
+
+}
+
+
+
+/* ========================================
+   HEADER SCROLL
+======================================== */
+
+function setupHeaderScroll() {
+
+  const header =
+    document.querySelector(
+      ".site-header"
+    );
+
+
+  if (!header) {
+    return;
+  }
+
+
+  function updateHeader() {
+
+    if (
+      window.scrollY > 20
+    ) {
+
+      header.classList.add(
+        "scrolled"
+      );
+
+    } else {
+
+      header.classList.remove(
+        "scrolled"
       );
 
     }
-  );
-
-
-  if (
-    existingImages.length <=
-    GALLERY_INITIAL_VISIBLE
-  ) {
-
-    galleryMoreWrap.hidden =
-      true;
-
-    return;
 
   }
 
 
-  galleryMoreWrap.hidden =
-    false;
+  updateHeader();
 
 
-  galleryToggle.addEventListener(
-    "click",
-    () => {
-
-      const expanded =
-        galleryGrid
-          .classList
-          .toggle("expanded");
-
-
-      if (expanded) {
-
-        galleryToggle.innerHTML =
-          `SHOW LESS <span>↑</span>`;
-
-      } else {
-
-        galleryToggle.innerHTML =
-          `MORE PHOTOS <span>↓</span>`;
-
-      }
-
+  window.addEventListener(
+    "scroll",
+    updateHeader,
+    {
+      passive: true
     }
   );
 
@@ -680,54 +830,85 @@ async function renderGallery() {
 
 
 /* ========================================
-   SCROLL REVEAL
+   REVEAL ANIMATION
 ======================================== */
 
-const revealElements =
-  document.querySelectorAll(
-    ".reveal"
-  );
+function setupRevealAnimation() {
+
+  const revealElements =
+    document.querySelectorAll(
+      ".reveal"
+    );
 
 
-if (
-  "IntersectionObserver"
-  in window
-) {
+  if (
+    revealElements.length === 0
+  ) {
+    return;
+  }
+
+
+  if (
+    !(
+      "IntersectionObserver"
+      in window
+    )
+  ) {
+
+    revealElements.forEach(
+      (element) => {
+
+        element.classList.add(
+          "visible"
+        );
+
+      }
+    );
+
+    return;
+
+  }
+
 
   const observer =
     new IntersectionObserver(
 
-      entries => {
+      (entries) => {
 
-        entries.forEach(entry => {
+        entries.forEach(
+          (entry) => {
 
-          if (
-            entry.isIntersecting
-          ) {
+            if (
+              entry.isIntersecting
+            ) {
 
-            entry.target
-              .classList
-              .add("visible");
-
-            observer.unobserve(
               entry.target
-            );
+                .classList
+                .add(
+                  "visible"
+                );
+
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
 
           }
-
-        });
+        );
 
       },
 
       {
-        threshold: 0.1
+        threshold: 0.08
       }
 
     );
 
 
   revealElements.forEach(
-    element => {
+    (element) => {
 
       observer.observe(
         element
@@ -736,62 +917,25 @@ if (
     }
   );
 
-} else {
-
-  revealElements.forEach(
-    element => {
-
-      element.classList.add(
-        "visible"
-      );
-
-    }
-  );
-
 }
 
 
 
 /* ========================================
-   HEADER
+   INITIALIZE
 ======================================== */
 
-const header =
-  document.querySelector(
-    ".site-header"
-  );
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
 
+    renderPerformances();
 
-function updateHeader() {
+    loadGallery();
 
-  if (!header) {
-    return;
-  }
+    setupHeaderScroll();
 
-  header.classList.toggle(
-    "scrolled",
-    window.scrollY > 30
-  );
+    setupRevealAnimation();
 
-}
-
-
-window.addEventListener(
-  "scroll",
-  updateHeader,
-  {
-    passive: true
   }
 );
-
-
-
-/* ========================================
-   START
-======================================== */
-
-renderSchedule();
-
-renderGallery();
-
-updateHeader();
