@@ -42,21 +42,25 @@
 
   <style>
 
+    /* ========================================
+       LANGUAGE SWITCH
+    ======================================== */
+
     .bio-language-switch {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
 
-      margin-top: 18px;
+      margin-top: 22px;
 
       font-family: "Quicksand", sans-serif;
-      font-size: 9px;
+      font-size: 13px;
       font-weight: 500;
 
       letter-spacing: 0.14em;
       text-transform: uppercase;
 
-      color: #9a9289;
+      color: #928a82;
     }
 
 
@@ -75,6 +79,74 @@
 
     .bio-language-switch .current-language {
       color: #211f1c;
+    }
+
+
+
+    /* ========================================
+       BIOGRAPHY WIDTH
+    ======================================== */
+
+    .bio-body-wrap {
+      max-width: 820px;
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+    .biography-content p {
+      margin: 0 0 30px;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 21px;
+      font-weight: 400;
+
+      line-height: 1.68;
+
+      color: #413c37;
+    }
+
+
+    .biography-content strong {
+      font-weight: 500;
+    }
+
+
+    .biography-content em {
+      font-style: italic;
+    }
+
+
+    .bio-body-wrap .bio-link {
+      margin-top: 18px;
+    }
+
+
+
+    /* ========================================
+       MOBILE
+    ======================================== */
+
+    @media (max-width: 760px) {
+
+      .bio-language-switch {
+        font-size: 12px;
+      }
+
+
+      .bio-body-wrap {
+        max-width: 100%;
+      }
+
+
+      .biography-content p {
+        font-size: 18px;
+
+        line-height: 1.7;
+      }
+
     }
 
   </style>
@@ -171,74 +243,79 @@
     <div class="page-rule"></div>
 
 
-    <div class="biography-content">
 
-      <p>
-        <strong>Eli Sunghyun Kim</strong> is a South Korean pianist whose
-        international activities span the United Kingdom, United States,
-        Austria, South Korea, Japan, Taiwan, and Vietnam. She has appeared
-        at distinguished venues and institutions including the Wiener
-        Musikverein in Vienna, Carnegie Hall, Walt Disney Concert Hall,
-        and Harvard University, as well as in concert series and festivals
-        throughout Asia.
-      </p>
+    <div class="bio-body-wrap">
 
+      <div class="biography-content">
 
-      <p>
-        In summer 2026, Eli was invited to Vietnam as a faculty member
-        and guest artist, presenting performances and masterclasses at
-        Harmony Bechstein Academy, Duc Tri, and S Talent Academy.
-        Her international activities also extend to competition adjudication,
-        with invitations to serve as a jury member for competitions in
-        Hong Kong and Malaysia. Her performance projects and artistic
-        collaborations include the <em>Mozart Piano Sonata Complete Series</em>
-        and the <em>French Music Project</em>, presented across the
-        United States, Taiwan, and South Korea.
-      </p>
+        <p>
+          <strong>Eli Sunghyun Kim</strong> is a South Korean pianist whose
+          international activities span the United Kingdom, United States,
+          Austria, South Korea, Japan, Taiwan, and Vietnam. She has appeared
+          at distinguished venues and institutions including the Wiener
+          Musikverein in Vienna, Carnegie Hall, Walt Disney Concert Hall,
+          and Harvard University, as well as in concert series and festivals
+          throughout Asia.
+        </p>
 
 
-      <p>
-        Eli was awarded the Grand Prize in the Youngsan Cultural Foundation’s
-        Professional Artists Development Project, receiving sponsorship
-        from the Foundation. She was also a winner of the OpusOne
-        International Music Festival Concerto Competition, which led to
-        an invited concerto performance in California. Her honors additionally
-        include the Korean Honor Scholarship from the Embassy of the
-        Republic of Korea in the USA and a scholarship from the
-        Seoul National University Alumni Association of the Chicago Area.
-      </p>
+        <p>
+          In summer 2026, Eli was invited to Vietnam as a faculty member
+          and guest artist, presenting performances and masterclasses at
+          Harmony Bechstein Academy, Duc Tri, and S Talent Academy.
+          Her international activities also extend to competition adjudication,
+          with invitations to serve as a jury member for competitions in
+          Hong Kong and Malaysia. Her performance projects and artistic
+          collaborations include the <em>Mozart Piano Sonata Complete Series</em>
+          and the <em>French Music Project</em>, presented across the
+          United States, Taiwan, and South Korea.
+        </p>
 
 
-      <p>
-        She is currently a
-        <strong>
-          Doctoral Fellow and Doctor of Musical Arts (DMA) candidate
-          in Piano Performance and Literature
-        </strong>
-        at the University of Illinois Urbana-Champaign, where she holds
-        the <strong>Langford Fellowship</strong>. She received her Master
-        of Music from Indiana University with the Artistic Excellence Award
-        and her Bachelor of Music from Seoul National University with
-        a university scholarship.
-      </p>
+        <p>
+          Eli was awarded the Grand Prize in the Youngsan Cultural Foundation’s
+          Professional Artists Development Project, receiving sponsorship
+          from the Foundation. She was also a winner of the OpusOne
+          International Music Festival Concerto Competition, which led to
+          an invited concerto performance in California. Her honors additionally
+          include the Korean Honor Scholarship from the Embassy of the
+          Republic of Korea in the USA and a scholarship from the
+          Seoul National University Alumni Association of the Chicago Area.
+        </p>
 
 
-      <p>
-        Working between <strong>London, Seoul, and Illinois</strong>,
-        Eli continues an active international career as a pianist and
-        researcher, with ongoing performances, artistic projects, and
-        scholarly work across Europe, North America, and Asia.
-      </p>
+        <p>
+          She is currently a
+          <strong>
+            Doctoral Fellow and Doctor of Musical Arts (DMA) candidate
+            in Piano Performance and Literature
+          </strong>
+          at the University of Illinois Urbana-Champaign, where she holds
+          the <strong>Langford Fellowship</strong>. She received her Master
+          of Music from Indiana University with the Artistic Excellence Award
+          and her Bachelor of Music from Seoul National University with
+          a university scholarship.
+        </p>
+
+
+        <p>
+          Working between <strong>London, Seoul, and Illinois</strong>,
+          Eli continues an active international career as a pianist and
+          researcher, with ongoing performances, artistic projects, and
+          scholarly work across Europe, North America, and Asia.
+        </p>
+
+      </div>
+
+
+      <a
+        class="bio-link"
+        href="about.html"
+      >
+        ← BACK TO ABOUT
+      </a>
 
     </div>
-
-
-    <a
-      class="bio-link"
-      href="about.html"
-    >
-      ← BACK TO ABOUT
-    </a>
 
   </div>
 
