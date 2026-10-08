@@ -14,23 +14,168 @@
     content="Official website of pianist and researcher Eli Sunghyun Kim. Performances, artistic projects, research, biography, schedule, and gallery."
   >
 
-  <title>Eli Sunghyun Kim | Pianist & Researcher</title>
+  <title>Eli Sunghyun Kim | Pianist &amp; Researcher</title>
 
   <link rel="stylesheet" href="style.css">
-  <meta property="og:image" content="https://elikimpianist.github.io/eli-main-new.jpg">
-<meta property="og:image:alt" content="Eli Sunghyun Kim, pianist and researcher">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Eli Sunghyun Kim",
-  "url": "https://elikimpianist.github.io/",
-  "image": "https://elikimpianist.github.io/eli-main-new.jpg",
-  "jobTitle": "Pianist and Researcher"
-}
-</script>
-  
+
+  <style>
+
+    /* ========================================
+       HOME ABOUT — COMPACT PROFILE
+    ======================================== */
+
+    .home-profile-entry {
+      margin: 0;
+    }
+
+
+    .home-profile-title {
+      margin: 0 0 3px;
+
+      font-family: "Quicksand", sans-serif;
+
+      font-size: 13px;
+
+      font-weight: 500;
+
+      line-height: 1.55;
+
+      color: #37332f;
+    }
+
+
+    .home-profile-school {
+      margin: 0;
+
+      font-family: "Quicksand", sans-serif;
+
+      font-size: 11px;
+
+      font-weight: 400;
+
+      line-height: 1.65;
+
+      color: #777069;
+    }
+
+
+
+    /* ========================================
+       HOME EDUCATION
+    ======================================== */
+
+    .home-education-list {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 14px;
+    }
+
+
+    .home-education-entry {
+      margin: 0;
+    }
+
+
+    .home-education-degree {
+      margin: 0 0 3px;
+
+      font-family: "Quicksand", sans-serif;
+
+      font-size: 13px;
+
+      font-weight: 500;
+
+      line-height: 1.55;
+
+      color: #37332f;
+    }
+
+
+    .home-education-school {
+      margin: 0;
+
+      font-family: "Quicksand", sans-serif;
+
+      font-size: 11px;
+
+      font-weight: 400;
+
+      line-height: 1.65;
+
+      color: #777069;
+    }
+
+
+
+    /* ========================================
+       HOME MINOR STUDIES
+    ======================================== */
+
+    .home-minor-studies {
+      margin-top: 18px;
+
+      padding-top: 15px;
+
+      border-top: 1px solid #ddd7ce;
+    }
+
+
+    .home-minor-label {
+      margin: 0 0 7px;
+
+      font-family: "Quicksand", sans-serif;
+
+      font-size: 8.5px;
+
+      font-weight: 500;
+
+      letter-spacing: 0.14em;
+
+      color: #8b837b;
+    }
+
+
+    .home-minor-text {
+      margin: 0;
+
+      font-family: "Quicksand", sans-serif;
+
+      font-size: 11px;
+
+      font-weight: 400;
+
+      line-height: 1.7;
+
+      color: #68615a;
+    }
+
+
+
+    /* ========================================
+       MOBILE
+    ======================================== */
+
+    @media (max-width: 760px) {
+
+      .home-profile-title,
+      .home-education-degree {
+        font-size: 12px;
+      }
+
+
+      .home-profile-school,
+      .home-education-school,
+      .home-minor-text {
+        font-size: 10px;
+      }
+
+    }
+
+  </style>
+
 </head>
 
 
@@ -171,6 +316,25 @@
         </div>
 
 
+
+        <!-- MAIN KEYWORDS -->
+
+        <div class="hero-main-keywords">
+
+          <p class="hero-label">
+            MAIN KEYWORDS
+          </p>
+
+          <p class="hero-keywords">
+            GIROLAMO FRESCOBALDI · KEYBOARD TOCCATA
+            <br>
+            IMPROVISATION · PERFORMANCE PRACTICE
+          </p>
+
+        </div>
+
+
+
         <!-- LOCATION -->
 
         <p class="hero-locations">
@@ -217,7 +381,7 @@
       </div>
 
 
-      <div class="projects-grid projects-grid-two">
+      <div class="projects-grid">
 
 
         <!-- FRESCOBALDI -->
@@ -274,29 +438,35 @@
           </p>
 
         </article>
-<article class="project-card">
 
-  <p class="project-number">
-    03
-  </p>
 
-  <p class="project-location">
-    SOUTH KOREA · TAIWAN
-  </p>
 
-  <h3>
-    Mozart Piano Sonata
-    <br>
-    Complete Series
-  </h3>
+        <!-- MOZART -->
 
-  <p>
-    A collaborative performance project presenting
-    Mozart’s complete piano sonatas through
-    an ongoing series of recitals.
-  </p>
+        <article class="project-card">
 
-</article>
+          <p class="project-number">
+            03
+          </p>
+
+          <p class="project-location">
+            SOUTH KOREA · TAIWAN
+          </p>
+
+          <h3>
+            Mozart Piano Sonata
+            <br>
+            Complete Series
+          </h3>
+
+          <p>
+            A collaborative performance project presenting
+            Mozart’s complete piano sonatas through
+            an ongoing series of recitals.
+          </p>
+
+        </article>
+
 
       </div>
 
@@ -340,10 +510,14 @@
               CURRENT POSITION
             </p>
 
-            <div class="about-lines">
 
-              <p>
-                Doctoral Fellow —
+            <div class="home-profile-entry">
+
+              <p class="home-profile-title">
+                Doctoral Fellow
+              </p>
+
+              <p class="home-profile-school">
                 University of Illinois Urbana-Champaign, USA
               </p>
 
@@ -361,25 +535,65 @@
               EDUCATION
             </p>
 
-            <div class="about-lines">
 
-              <p>
-                DMA Candidate in Piano Performance &amp; Literature —
-                University of Illinois Urbana-Champaign, USA
+            <div class="home-education-list">
+
+
+              <div class="home-education-entry">
+
+                <p class="home-education-degree">
+                  DMA Candidate in Piano Performance &amp; Literature
+                </p>
+
+                <p class="home-education-school">
+                  University of Illinois Urbana-Champaign, USA
+                </p>
+
+              </div>
+
+
+
+              <div class="home-education-entry">
+
+                <p class="home-education-degree">
+                  MM in Piano Performance
+                </p>
+
+                <p class="home-education-school">
+                  Indiana University Bloomington, USA
+                </p>
+
+              </div>
+
+
+
+              <div class="home-education-entry">
+
+                <p class="home-education-degree">
+                  BM in Piano Performance
+                </p>
+
+                <p class="home-education-school">
+                  Seoul National University, South Korea
+                </p>
+
+              </div>
+
+
+            </div>
+
+
+
+            <div class="home-minor-studies">
+
+              <p class="home-minor-label">
+                MINOR STUDIES
               </p>
 
-              <p>
-                MM — Indiana University Bloomington, USA
+              <p class="home-minor-text">
+                Harpsichord · Composition · Vocal Music · Piano Pedagogy
               </p>
 
-              <p>
-                BM — Seoul National University, South Korea
-              </p>
-
-               <p>
-                (Minors: Harpsichord, Composition, Vocal Music, and Piano Pedagogy)
-              </p>
-              
             </div>
 
           </div>
@@ -394,9 +608,11 @@
               SELECTED FELLOWSHIPS &amp; AWARDS
             </p>
 
+
             <div class="about-awards">
 
               <p>
+
                 <span class="award-year">
                   2023–2026
                 </span>
@@ -405,10 +621,12 @@
                   Langford Fellowship —
                   University of Illinois Urbana-Champaign
                 </span>
+
               </p>
 
 
               <p>
+
                 <span class="award-year">
                   2025
                 </span>
@@ -417,10 +635,12 @@
                   Korean Honor Scholarship —
                   Embassy of the Republic of Korea in the USA
                 </span>
+
               </p>
 
 
               <p>
+
                 <span class="award-year">
                   2025
                 </span>
@@ -430,10 +650,12 @@
                   Seoul National University Alumni Association
                   of the Chicago Area
                 </span>
+
               </p>
 
 
               <p>
+
                 <span class="award-year">
                   2024
                 </span>
@@ -443,6 +665,7 @@
                   Youngsan Cultural Foundation,
                   Professional Artists Development Project
                 </span>
+
               </p>
 
             </div>
@@ -486,6 +709,7 @@
             </p>
 
           </div>
+
 
 
           <p class="about-location">
