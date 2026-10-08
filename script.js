@@ -31,14 +31,6 @@ gtag("config", "G-F1BVP6STJG");
 
 const performances = [
 
-    {
-    date: "2027-06-30",
-    time: "1:15 PM",
-    venue: "St Paul's Clifton ",
-    location: "Bristol, UK",
-    type: "Lunchtime Recital"
-  },
-   
   {
     date: "2026-04-11",
     time: "3:30 PM",
@@ -133,7 +125,7 @@ const performances = [
   },
 
   {
-    date: "2027-02-15",
+    date: "2027-03-09",
     time: "1:10 PM",
     venue: "Pusey House",
     location: "Oxford, UK",
@@ -174,6 +166,14 @@ const performances = [
   },
 
   {
+    date: "2027-06-30",
+    time: "1:15 PM",
+    venue: "St Paul's Clifton",
+    location: "Bristol, UK",
+    type: "Lunchtime Recital"
+  },
+
+  {
     date: "2027-07-12",
     time: "1:10 PM",
     venue: "St Stephen’s",
@@ -185,6 +185,14 @@ const performances = [
     date: "2027-11-06",
     time: "1:05 PM",
     venue: "St Alfege Greenwich",
+    location: "London, UK",
+    type: "Lunchtime Recital"
+  },
+
+  {
+    date: "2028-01-06",
+    time: "1:10 PM",
+    venue: "St Matthew’s Redhill",
     location: "London, UK",
     type: "Lunchtime Recital"
   },
@@ -214,8 +222,6 @@ const performances = [
   }
 
 ];
-
-
 
 /* ========================================
    PERFORMANCE DATE FUNCTIONS
