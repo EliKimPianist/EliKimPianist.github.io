@@ -2387,13 +2387,11 @@ footer {
 }
 
 /* ========================================
-   PERFORMANCE — MORE INFO LINK
+   PERFORMANCE — MORE INFO
 ======================================== */
 
 .event-more-info {
   display: inline-block;
-
-  margin-top: 8px;
 
   padding-bottom: 2px;
 
@@ -2424,27 +2422,10 @@ footer {
 }
 
 
-#past-list .event-more-info {
-  margin-top: 5px;
-
-  font-size: 8px;
-
-  color: #8a827a;
-}
-
-
-@media (max-width: 760px) {
-
-  .event-more-info {
-    margin-top: 7px;
-
-    font-size: 8px;
-  }
-
-}
 
 /* ========================================
-   DESKTOP PERFORMANCE LINK POSITION
+   DESKTOP
+   MORE INFO BELOW DATE
 ======================================== */
 
 @media (min-width: 761px) {
@@ -2453,36 +2434,49 @@ footer {
     position: relative;
   }
 
-  .event-details {
-    padding-right: 150px;
-  }
 
   .event-more-info {
     position: absolute;
 
-    right: 0;
-    top: 50%;
+    left: 0;
+    right: auto;
 
-    transform: translateY(-50%);
+    top: 48px;
 
-    margin-top: 0;
+    margin: 0;
+
+    transform: none;
   }
 
 }
 
 
+
 /* ========================================
-   MOBILE — KEEP CURRENT LAYOUT
+   MOBILE
+   MORE INFO BESIDE DATE
 ======================================== */
 
 @media (max-width: 760px) {
 
+  .event {
+    position: relative;
+  }
+
+
   .event-more-info {
-    position: static;
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
+    left: auto;
+
+    margin: 0;
 
     transform: none;
 
-    margin-top: 8px;
+    font-size: 8px;
   }
 
 }
