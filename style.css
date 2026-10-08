@@ -2480,3 +2480,34 @@ footer {
   }
 
 }
+
+/* ========================================
+   MORE INFO — PAST PERFORMANCE FIX
+======================================== */
+
+@media (min-width: 761px) {
+
+  /* Upcoming: 현재 네가 마음에 들어한 위치 */
+  #upcoming-list .event-more-info {
+    top: 70px;
+  }
+
+  /* Past: compact row라 더 위로 */
+  #past-list .event-more-info {
+    top: 42px;
+  }
+
+}
+
+
+/* MOBILE — 그대로 날짜 오른쪽 */
+@media (max-width: 760px) {
+
+  #upcoming-list .event-more-info,
+  #past-list .event-more-info {
+    top: 0;
+    right: 0;
+    left: auto;
+  }
+
+}
