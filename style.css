@@ -2442,3 +2442,47 @@ footer {
   }
 
 }
+
+/* ========================================
+   DESKTOP PERFORMANCE LINK POSITION
+======================================== */
+
+@media (min-width: 761px) {
+
+  .event {
+    position: relative;
+  }
+
+  .event-details {
+    padding-right: 150px;
+  }
+
+  .event-more-info {
+    position: absolute;
+
+    right: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    margin-top: 0;
+  }
+
+}
+
+
+/* ========================================
+   MOBILE — KEEP CURRENT LAYOUT
+======================================== */
+
+@media (max-width: 760px) {
+
+  .event-more-info {
+    position: static;
+
+    transform: none;
+
+    margin-top: 8px;
+  }
+
+}
