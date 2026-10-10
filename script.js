@@ -170,7 +170,7 @@ const performances = [
     time: "7:00 PM",
     venue: "Christ Church East Sheen",
     location: "London, UK",
-    type: "Recital"
+    type: "Solo Recital"
   },
 
   {
