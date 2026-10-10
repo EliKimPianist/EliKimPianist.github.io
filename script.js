@@ -31,6 +31,14 @@ gtag("config", "G-F1BVP6STJG");
 
 const performances = [
 
+   {
+  date: "2028-01-19",
+  time: "12:45 PM",
+  venue: "Espace Bernanos",
+  location: "Paris, France",
+  type: "Pause Musicale Recital"
+},
+   
   {
     date: "2026-04-11",
     time: "3:30 PM",
