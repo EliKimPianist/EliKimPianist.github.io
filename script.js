@@ -36,7 +36,7 @@ const performances = [
   time: "12:45 PM",
   venue: "Espace Bernanos",
   location: "Paris, France",
-  type: "Pause Musicale Recital"
+  type: "Solo Recital"
 },
    
   {
