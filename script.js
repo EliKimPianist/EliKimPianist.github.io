@@ -63,7 +63,7 @@ const performances = [
     venue: "S Talent Academy",
     location: "Da Nang, Vietnam",
     type: "Piano Duo Recital",
-     link: "s talent_2026.pdf"
+     link: "s talent_2026.png"
   },
 
   {
@@ -99,7 +99,7 @@ const performances = [
     venue: "St John’s College, University of Cambridge",
     location: "Cambridge, UK",
     type: "Lunchtime Recital",
-    link: "Cambridge_2026.pdf"
+    link: "Cambridge_2026.png"
   },
 
   {
