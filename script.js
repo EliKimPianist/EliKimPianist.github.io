@@ -63,6 +63,7 @@ const performances = [
     venue: "S Talent Academy",
     location: "Da Nang, Vietnam",
     type: "Piano Duo Recital"
+     link: "s talent_2026.pdf"
   },
 
   {
@@ -71,6 +72,7 @@ const performances = [
     venue: "Duc Tri Piano Boutique",
     location: "Ho Chi Minh City, Vietnam",
     type: "Recital"
+   link: "duc tri_2026.pdf"
   },
 
   {
@@ -79,6 +81,7 @@ const performances = [
     venue: "Harmony Bechstein Academy",
     location: "Ho Chi Minh City, Vietnam",
     type: "Recital"
+     link: "bechstein_2026.pdf"
   },
 
   {
@@ -96,6 +99,7 @@ const performances = [
     venue: "St John’s College, University of Cambridge",
     location: "Cambridge, UK",
     type: "Lunchtime Recital"
+    link: "Cambridge_2026.pdf"
   },
 
   {
