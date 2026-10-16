@@ -213,6 +213,14 @@ const performances = [
     type: "Lunchtime Recital"
   },
 
+     {
+    date: "2028-02-23",
+    time: "1:00 PM",
+    venue: "Downing Place URC",
+    location: "Cambridge, UK",
+    type: "Lunchtime Recital"
+  },
+
   {
     date: "2028-03-29",
     time: "2:00 PM",
