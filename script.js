@@ -62,7 +62,7 @@ const performances = [
     time: "7:00 PM",
     venue: "S Talent Academy",
     location: "Da Nang, Vietnam",
-    type: "Piano Duo Recital" 
+    type: "Piano Duo Recital",
      link: "s talent_2026.pdf"
   },
 
@@ -71,7 +71,7 @@ const performances = [
     time: "6:30 PM",
     venue: "Duc Tri Piano Boutique",
     location: "Ho Chi Minh City, Vietnam",
-    type: "Recital" 
+    type: "Recital",
     link: "duc tri_2026.pdf"
   },
 
@@ -80,7 +80,7 @@ const performances = [
     time: "7:30 PM",
     venue: "Harmony Bechstein Academy",
     location: "Ho Chi Minh City, Vietnam",
-    type: "Recital" 
+    type: "Recital",
      link: "bechstein_2026.pdf"
   },
 
@@ -98,7 +98,7 @@ const performances = [
     time: "1:15 PM",
     venue: "St John’s College, University of Cambridge",
     location: "Cambridge, UK",
-    type: "Lunchtime Recital" 
+    type: "Lunchtime Recital",
     link: "Cambridge_2026.pdf"
   },
 
