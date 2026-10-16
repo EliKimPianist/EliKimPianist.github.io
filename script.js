@@ -144,6 +144,14 @@ const performances = [
     type: "Lunchtime Recital"
   },
 
+   {
+  date: "2027-04-01",
+  displayDate: "APR–MAY 2027",
+  venue: "Asia & U.S. Tour",
+  location: "Seoul · Kuala Lumpur · Illinois",
+  type: "International Performances & Adjudication"
+},
+   
   {
     date: "2027-06-16",
     time: "1:00 PM",
@@ -298,10 +306,15 @@ function createPerformanceElement(performance) {
   date.className = "date";
 
 
-  const dateAndTime =
-    performance.time
-      ? `${formatPerformanceDate(performance.date)} · ${performance.time}`
-      : formatPerformanceDate(performance.date);
+ const dateText =
+  performance.displayDate
+    ? performance.displayDate
+    : formatPerformanceDate(performance.date);
+
+const dateAndTime =
+  performance.time
+    ? `${dateText} · ${performance.time}`
+    : dateText;
 
 
   date.textContent =
