@@ -78,7 +78,7 @@ const performances = [
   {
     date: "2026-08-18",
     time: "7:30 PM",
-    venue: "Harmony Bechstein Academy",
+    venue: "C. Bechstein Vietnam",
     location: "Ho Chi Minh City, Vietnam",
     type: "Recital",
      link: "bechstein_2026.pdf"
