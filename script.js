@@ -555,7 +555,7 @@ const galleryCaptions = {
 
   13: "Seoul, South Korea · 2024",
 
- 13: "Cambridge, UK · 2026"
+ 14: "Cambridge, UK · 2026"
 
 };
 
