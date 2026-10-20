@@ -561,7 +561,7 @@ const galleryCaptions = {
 
 
 const GALLERY_INITIAL_VISIBLE =
-  13;
+  14;
 
 
 const GALLERY_MAX =
