@@ -32,6 +32,14 @@ gtag("config", "G-F1BVP6STJG");
 const performances = [
 
    {
+  date: "2026-11-12",
+  time: "07:00 PM",
+  venue: "Hertford College, University of Oxford",
+  location: "Oxford, UK",
+  type: "Solo Recital"
+},
+   
+   {
   date: "2028-01-19",
   time: "12:45 PM",
   venue: "Espace Bernanos",
