@@ -34,7 +34,7 @@ const performances = [
    {
   date: "2028-07-15",
   time: "01:00 PM",
-  venue: "Michael House",
+  venue: "Michaelhouse",
   location: "Cambridge, UK",
   type: "Lunchtime Recital"
 },
