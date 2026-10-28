@@ -32,6 +32,14 @@ gtag("config", "G-F1BVP6STJG");
 const performances = [
 
    {
+  date: "2028-07-15",
+  time: "01:00 PM",
+  venue: "Michael House",
+  location: "Cambridge, UK",
+  type: "Lunchtime Recital"
+},
+   
+   {
   date: "2026-11-12",
   time: "07:00 PM",
   venue: "Hertford College, University of Oxford",
