@@ -32,6 +32,14 @@ gtag("config", "G-F1BVP6STJG");
 const performances = [
 
    {
+  date: "2027-10-22",
+  time: "01:00 PM",
+  venue: "St John the Baptist Wimbledon",
+  location: "London, UK",
+  type: "Lunchtime Recital"
+},
+   
+   {
   date: "2028-07-15",
   time: "01:00 PM",
   venue: "Michaelhouse",
