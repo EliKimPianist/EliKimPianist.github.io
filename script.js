@@ -31,6 +31,14 @@ gtag("config", "G-F1BVP6STJG");
 
 const performances = [
 
+     {
+  date: "2027-07-19",
+  time: "01:00 PM",
+  venue: "All Saints Church, Penarth",
+  location: "Penarth, Wales, UK",
+  type: "Lunchtime Recital"
+},
+   
    {
   date: "2026-12-01",
   time: "01:15 PM",
