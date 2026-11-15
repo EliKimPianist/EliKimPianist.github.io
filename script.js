@@ -31,6 +31,22 @@ gtag("config", "G-F1BVP6STJG");
 
 const performances = [
 
+   {
+  date: "2027-02-03",
+  time: "12:30 PM",
+  venue: "St Botolph-without-Aldgate",
+  location: "London, UK",
+  type: "Lunchtime Recital"
+},
+   
+   {
+  date: "2027-03-02",
+  time: "01:30 PM",
+  venue: "St Michael’s Highgate",
+  location: "London, UK",
+  type: "Lunchtime Recital"
+},
+   
      {
   date: "2027-07-19",
   time: "01:00 PM",
