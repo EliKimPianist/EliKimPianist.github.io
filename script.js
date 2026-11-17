@@ -81,10 +81,10 @@ const performances = [
    
    {
   date: "2026-11-12",
-  time: "07:00 PM",
+  time: "08:30 PM",
   venue: "Hertford College, University of Oxford",
   location: "Oxford, UK",
-  type: "Solo Recital"
+  type: "Solo Recital",
   link: "Univ of Oxford.pdf"
 },
    
