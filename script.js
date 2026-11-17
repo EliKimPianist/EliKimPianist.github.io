@@ -32,6 +32,14 @@ gtag("config", "G-F1BVP6STJG");
 const performances = [
 
    {
+  date: "2028-03-15",
+  time: "01:00 PM",
+  venue: "Southend-on-Sea City Council",
+  location: "Southend-on-Sea, UK",
+  type: "Lunchtime Recital"
+},
+   
+   {
   date: "2027-02-03",
   time: "12:30 PM",
   venue: "St Botolph-without-Aldgate",
