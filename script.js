@@ -60,7 +60,8 @@ const performances = [
   time: "01:15 PM",
   venue: "Bristol Cathedral",
   location: "Bristol, UK",
-  type: "Lunchtime Recital"
+  type: "Lunchtime Recital",
+  link: "https://bristol-cathedral.co.uk/event/mabelle-young-eun-park/"
 },
    
    {
