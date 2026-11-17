@@ -33,8 +33,8 @@ const performances = [
 
    {
   date: "2028-03-15",
-  time: "01:00 PM",
-  venue: "Southend-on-Sea City Council",
+  time: "12:15 PM",
+  venue: "Southend-on-Sea City Council Civic Centre",
   location: "Southend-on-Sea, UK",
   type: "Lunchtime Recital"
 },
