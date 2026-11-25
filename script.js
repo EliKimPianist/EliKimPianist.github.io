@@ -188,7 +188,7 @@ const performances = [
 
   {
     date: "2027-01-21",
-    time: "1:05 PM",
+    time: "12:00 PM",
     venue: "St Mary-le-Bow Church",
     location: "London, UK",
     type: "Lunchtime Recital",
