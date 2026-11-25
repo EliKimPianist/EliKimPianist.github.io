@@ -191,7 +191,8 @@ const performances = [
     time: "1:05 PM",
     venue: "St Mary-le-Bow Church",
     location: "London, UK",
-    type: "Lunchtime Recital"
+    type: "Lunchtime Recital",
+   link: "https://www.stmarylebow.org.uk/parish-events/building-common-ground-talk-e49mc-7669k-ylf2l-4sf4s-lrwwk"
   },
 
   {
